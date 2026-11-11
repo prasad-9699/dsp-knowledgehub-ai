@@ -1,5 +1,5 @@
 """
-DSP AI Investment Intelligence Platform - Application Configuration
+DSP KnowledgeHub AI – Employee Self-Service Portal - Application Configuration
 
 Centralizes all configuration from environment variables.
 Uses pydantic-settings for type-safe config with validation.
@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     )
 
     # --- Application ---
-    app_name: str = "DSP AI Investment Intelligence"
+    app_name: str = "DSP KnowledgeHub AI – Employee Self-Service Portal"
     app_env: str = "development"
     app_debug: bool = True
     app_port: int = 8000
@@ -30,8 +30,8 @@ class Settings(BaseSettings):
     app_secret_key: str = "dev-secret-change-in-production"
 
     # --- Database ---
-    database_url: str = "postgresql+asyncpg://dsp_user:dsp_password@localhost:5432/dsp_investment"
-    database_sync_url: str = "postgresql://dsp_user:dsp_password@localhost:5432/dsp_investment"
+    database_url: str = "postgresql+asyncpg://dsp_user:dsp_password@localhost:5432/dsp_knowledgehub"
+    database_sync_url: str = "postgresql://dsp_user:dsp_password@localhost:5432/dsp_knowledgehub"
 
     # --- Redis ---
     redis_url: str = "redis://localhost:6379/0"
@@ -94,7 +94,7 @@ class Settings(BaseSettings):
     log_format: str = "json"
 
     # --- Demo Mode ---
-    demo_mode: bool = False
+    demo_mode: bool = True
 
     @property
     def cors_origins_list(self) -> list[str]:
@@ -102,11 +102,19 @@ class Settings(BaseSettings):
 
     @property
     def is_production(self) -> bool:
-        return self.app_env == "production"
+        return self.app_env.lower() in ("production", "prod")
+
+    @property
+    def is_remote_db(self) -> bool:
+        """Returns True if database_url points to a configured remote host (not localhost/127.0.0.1)."""
+        if not self.database_url:
+            return False
+        clean_url = self.database_url.lower()
+        return "localhost" not in clean_url and "127.0.0.1" not in clean_url
 
     @property
     def is_demo(self) -> bool:
-        return self.demo_mode or self.market_data_provider == "demo"
+        return bool(self.demo_mode)
 
 
 @lru_cache

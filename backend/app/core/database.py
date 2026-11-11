@@ -44,6 +44,7 @@ engine = create_async_engine(
     max_overflow=10,
     pool_pre_ping=True,
     pool_recycle=3600,
+    connect_args={"timeout": 5},
 )
 
 # Session factory
@@ -76,6 +77,19 @@ async def get_db():
             raise
 
 
+async def check_db_connection() -> tuple[bool, Optional[str]]:
+    """Test live database connectivity using a lightweight query."""
+    if engine is None:
+        return False, "Database engine not initialized"
+    try:
+        from sqlalchemy import text
+        async with engine.connect() as conn:
+            await conn.execute(text("SELECT 1"))
+        return True, None
+    except Exception as e:
+        return False, str(e)
+
+
 async def init_db():
     """Initialize database tables."""
     async with engine.begin() as conn:
@@ -84,4 +98,5 @@ async def init_db():
 
 async def close_db():
     """Close database connections."""
-    await engine.dispose()
+    if engine is not None:
+        await engine.dispose()

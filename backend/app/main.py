@@ -1,13 +1,13 @@
 """
-DSP AI Investment Intelligence Platform — Main Application
+DSP KnowledgeHub AI – Employee Self-Service Portal — Main Application
 
 Production-oriented FastAPI application with:
 - CORS configuration
 - Rate limiting
-- Health checks
-- Prometheus metrics
+- Dynamic Health checks
 - Structured logging
-- API versioning
+- Role-based access control
+- RAG & Synthetic Demo mode support
 """
 
 from contextlib import asynccontextmanager
@@ -50,21 +50,77 @@ logger = structlog.get_logger()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup and shutdown lifecycle."""
-    logger.info("Starting DSP AI Investment Intelligence Platform",
-                env=settings.app_env, demo_mode=settings.is_demo)
+    logger.info(
+        "Starting DSP KnowledgeHub AI – Employee Self-Service Portal",
+        app_name=settings.app_name,
+        env=settings.app_env,
+        demo_mode=settings.is_demo,
+        version="2.0.0",
+    )
 
-    # Initialize database
-    try:
-        await init_db()
-        logger.info("Database initialized")
-    except Exception as e:
-        logger.error("Database initialization failed", error=str(e))
+    db_connected = False
+    db_error = None
+    db_mode = "unconfigured"
+
+    # Evaluate database strategy:
+    # 1. If DEMO_MODE=True and no remote database is configured, safely use synthetic in-memory store (no [Errno 111]).
+    # 2. If a remote database URL is configured (Render Postgres, AWS RDS, Neon), always connect.
+    # 3. If in local development (non-production) and not demo mode, attempt local database connection.
+    # 4. If in production (DEMO_MODE=False), database is strictly required. A connection failure raises a fatal error.
+    if settings.is_demo and not settings.is_remote_db:
+        should_connect = False
+    elif settings.is_remote_db:
+        should_connect = True
+    else:
+        should_connect = not settings.is_production
+
+    if should_connect:
+        try:
+            await init_db()
+            db_connected = True
+            db_mode = "postgresql"
+            logger.info("PostgreSQL database initialized successfully")
+        except Exception as e:
+            db_error = str(e)
+            logger.error("PostgreSQL database initialization failed", error=db_error)
+            if settings.is_production and not settings.is_demo:
+                raise RuntimeError(
+                    f"FATAL: Production database initialization failed ({db_error}). "
+                    "Ensure DATABASE_URL is correctly set in your environment variables."
+                ) from e
+            elif settings.is_demo:
+                db_mode = "synthetic_in_memory"
+                logger.warning(
+                    "DEMO_MODE=True: PostgreSQL unreachable, safely operating with synthetic in-memory data store",
+                    error=db_error,
+                )
+            else:
+                db_mode = "offline"
+    else:
+        # Production with unconfigured / localhost database
+        if settings.is_demo:
+            db_mode = "synthetic_in_memory"
+            logger.info(
+                "DEMO_MODE is active: Using synthetic in-memory persistence engine (PostgreSQL not connected). "
+                "All HR self-service, leave, approvals, and onboarding workflows are active with synthetic demo data."
+            )
+        else:
+            raise RuntimeError(
+                "FATAL: In production mode (DEMO_MODE=false), a valid remote DATABASE_URL is required. "
+                f"Current URL points to localhost: {settings.database_url}"
+            )
+
+    # Attach live DB status to app state for dynamic /health checks
+    app.state.db_connected = db_connected
+    app.state.db_error = db_error
+    app.state.db_mode = db_mode
 
     yield
 
     # Cleanup
-    await close_db()
-    logger.info("Application shutdown complete")
+    if db_connected:
+        await close_db()
+    logger.info("DSP KnowledgeHub AI application shutdown complete")
 
 
 app = FastAPI(
@@ -120,21 +176,57 @@ async def global_exception_handler(request: Request, exc: Exception):
 @app.get("/health")
 @app.get("/api/v1/health")
 async def health_check():
-    """Health check endpoint for load balancers and monitoring."""
-    return {
-        "status": "healthy",
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+    """
+    Health check endpoint for load balancers, monitoring, and cloud orchestrators.
+    Actively checks database connectivity and reports real service status.
+    """
+    db_mode = getattr(app.state, "db_mode", "unconfigured")
+    db_error = getattr(app.state, "db_error", None)
+    db_healthy = False
+
+    if db_mode == "postgresql":
+        # Actively test connection via SELECT 1
+        from app.core.database import check_db_connection
+        is_live, err = await check_db_connection()
+        if is_live:
+            db_healthy = True
+            db_status = "connected"
+        else:
+            db_status = "disconnected"
+            db_error = err
+    elif db_mode == "synthetic_in_memory":
+        db_healthy = True
+        db_status = "synthetic_in_memory (demo mode active)"
+    else:
+        db_status = "offline"
+
+    # In strict production (non-demo), database must be live for overall health
+    is_overall_healthy = db_healthy if (settings.is_production and not settings.is_demo) else True
+
+    response_payload = {
+        "status": "healthy" if is_overall_healthy else "unhealthy",
+        "application": settings.app_name,
         "version": "2.0.0",
         "environment": settings.app_env,
         "demo_mode": settings.is_demo,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "services": {
+            "database": db_status,
+            "database_error": db_error,
             "hr_self_service": "operational",
             "onboarding": "operational",
             "knowledge_rag": "operational",
             "identity_auth": "operational",
-            "database": "configured",
         },
     }
+
+    if not is_overall_healthy:
+        return JSONResponse(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            content=response_payload,
+        )
+
+    return response_payload
 
 
 # ─── API Routes ──────────────────────────────────────────────────────

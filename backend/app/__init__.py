@@ -1,3 +1,3 @@
 """
-DSP AI Investment Intelligence Platform - Backend Application
+DSP KnowledgeHub AI – Employee Self-Service Portal Backend Application
 """

@@ -1,5 +1,5 @@
 /**
- * DSP AI Investment Intelligence Platform
+ * DSP KnowledgeHub AI – Employee Self-Service Portal
  * API Service Layer
  * 
  * Centralizes all API calls with proper error handling,
