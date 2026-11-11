@@ -1,0 +1,3827 @@
+{
+  "is_demo": true,
+  "demo_notice": "SYNTHETIC DEMONSTRATION DATA \u2014 All employees, tasks, documents, and onboarding details in this dataset are fictional. This is not an official DSPAMC onboarding record. HR administrators must configure actual requirements for production use.",
+  "templates": {
+    "TPL-OB-STANDARD-001": {
+      "id": "TPL-OB-STANDARD-001",
+      "name": "Standard Employee Onboarding \u2014 DSPAMC",
+      "description": "DEMONSTRATION TEMPLATE \u2014 Illustrative onboarding tasks for DSPAMC. Actual requirements must be configured by authorized HR administrators.",
+      "is_active": true,
+      "department": "All",
+      "created_by": "EMP-1005",
+      "created_at": "2026-01-10T09:00:00+00:00",
+      "updated_at": "2026-09-01T09:00:00+00:00",
+      "stages": {
+        "PREBOARDING": {
+          "label": "Preboarding",
+          "description": "Tasks to complete before your joining date.",
+          "tasks": [
+            {
+              "id": "TASK-PRE-001",
+              "title": "Review onboarding instructions",
+              "description": "Read the onboarding welcome packet and instructions sent by HR. Familiarise yourself with the schedule for your first day.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": -7
+            },
+            {
+              "id": "TASK-PRE-002",
+              "title": "Submit required employment documents",
+              "description": "Upload the documents requested by HR for employment verification. See your document checklist for the specific items required.",
+              "is_required": true,
+              "requires_approval": true,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": true,
+              "days_offset": -5
+            },
+            {
+              "id": "TASK-PRE-003",
+              "title": "Review and acknowledge applicable policies",
+              "description": "Review the Employee Handbook, Code of Conduct, and IT Acceptable Use Policy. Submit the signed acknowledgement form.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": true,
+              "days_offset": -3
+            },
+            {
+              "id": "TASK-PRE-004",
+              "title": "Confirm joining details with HR",
+              "description": "Confirm your joining date, reporting time, and office location with your assigned HR coordinator.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": -2
+            },
+            {
+              "id": "TASK-PRE-005",
+              "title": "HR: Prepare joining kit and workstation",
+              "description": "HR to prepare welcome kit, ID card request, and confirm workstation assignment before joining date.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "HR",
+              "requires_document": false,
+              "days_offset": -1
+            },
+            {
+              "id": "TASK-PRE-006",
+              "title": "IT: Create system accounts",
+              "description": "IT to create email, network, and system accounts for the new employee before joining date.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "IT",
+              "requires_document": false,
+              "days_offset": -1
+            }
+          ]
+        },
+        "DAY_1": {
+          "label": "Day 1",
+          "description": "Joining formalities and initial orientation.",
+          "tasks": [
+            {
+              "id": "TASK-D1-001",
+              "title": "Complete joining formalities with HR",
+              "description": "Submit any remaining original documents, sign the appointment letter, and complete HR joining formalities.",
+              "is_required": true,
+              "requires_approval": true,
+              "responsible_party": "HR",
+              "requires_document": true,
+              "days_offset": 0
+            },
+            {
+              "id": "TASK-D1-002",
+              "title": "Attend orientation session",
+              "description": "Attend the mandatory new employee orientation covering DSPAMC's mission, values, organizational structure, and key policies.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "HR",
+              "requires_document": false,
+              "days_offset": 0
+            },
+            {
+              "id": "TASK-D1-003",
+              "title": "Receive assigned equipment",
+              "description": "Collect or confirm receipt of your assigned laptop, access card, and any role-specific equipment.",
+              "is_required": true,
+              "requires_approval": true,
+              "responsible_party": "IT",
+              "requires_document": false,
+              "days_offset": 0
+            },
+            {
+              "id": "TASK-D1-004",
+              "title": "Complete IT account and access setup",
+              "description": "Set up email, VPN, Microsoft Authenticator 2FA, and access the ServiceHub portal. Log the completion through the IT team.",
+              "is_required": true,
+              "requires_approval": true,
+              "responsible_party": "IT",
+              "requires_document": false,
+              "days_offset": 0
+            },
+            {
+              "id": "TASK-D1-005",
+              "title": "Review workplace and security guidelines",
+              "description": "Review the workplace safety, physical security access, and emergency procedure guidelines.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 0
+            },
+            {
+              "id": "TASK-D1-006",
+              "title": "Manager: Introduce employee to team",
+              "description": "Reporting manager to introduce the new employee to their immediate team and key stakeholders.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "MANAGER",
+              "requires_document": false,
+              "days_offset": 0
+            }
+          ]
+        },
+        "FIRST_WEEK": {
+          "label": "First Week",
+          "description": "Orientation, system access, and initial role exposure.",
+          "tasks": [
+            {
+              "id": "TASK-W1-001",
+              "title": "Complete assigned introductory training",
+              "description": "Complete the assigned introductory training modules available on the DSP Learning Portal.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 5
+            },
+            {
+              "id": "TASK-W1-002",
+              "title": "Meet reporting manager and team",
+              "description": "Schedule and attend one-on-one introductory meetings with your reporting manager and key team members.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 3
+            },
+            {
+              "id": "TASK-W1-003",
+              "title": "Review role-specific documentation",
+              "description": "Review the role-specific process guides, team SOPs, and regulatory documentation relevant to your position.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 5
+            },
+            {
+              "id": "TASK-W1-004",
+              "title": "Complete security awareness training",
+              "description": "Complete the mandatory information security awareness training covering data handling, phishing awareness, and clean desk policy.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 5
+            },
+            {
+              "id": "TASK-W1-005",
+              "title": "Confirm access to required internal systems",
+              "description": "Verify and confirm that you have access to all systems required for your role. Raise any access issues through ServiceHub.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 5
+            }
+          ]
+        },
+        "FIRST_30_DAYS": {
+          "label": "First 30 Days",
+          "description": "Training, role familiarization, and feedback.",
+          "tasks": [
+            {
+              "id": "TASK-30D-001",
+              "title": "Complete assigned learning modules",
+              "description": "Complete all mandatory learning modules assigned to your role on the DSP Learning Portal within your first 30 days.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 25
+            },
+            {
+              "id": "TASK-30D-002",
+              "title": "Review role-specific processes",
+              "description": "Shadow and review the core workflows and processes relevant to your role with your team and manager.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 20
+            },
+            {
+              "id": "TASK-30D-003",
+              "title": "Attend scheduled check-ins with manager",
+              "description": "Attend all scheduled check-in meetings with your reporting manager during the first 30 days.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "MANAGER",
+              "requires_document": false,
+              "days_offset": 30
+            },
+            {
+              "id": "TASK-30D-004",
+              "title": "Submit onboarding feedback form",
+              "description": "Complete the onboarding experience feedback survey to help HR improve the onboarding process.",
+              "is_required": true,
+              "requires_approval": false,
+              "responsible_party": "EMPLOYEE",
+              "requires_document": false,
+              "days_offset": 30
+            },
+            {
+              "id": "TASK-30D-005",
+              "title": "Manager: Conduct initial performance review",
+              "description": "Reporting manager to conduct a 30-day initial review meeting, record observations, and submit the review form.",
+              "is_required": true,
+              "requires_approval": true,
+              "responsible_party": "MANAGER",
+              "requires_document": true,
+              "days_offset": 30
+            }
+          ]
+        }
+      }
+    }
+  },
+  "document_types": {
+    "DOC-TYPE-001": {
+      "id": "DOC-TYPE-001",
+      "name": "Appointment Letter Acknowledgement",
+      "description": "Signed acknowledgement of the appointment letter.",
+      "is_sensitive": false,
+      "allowed_formats": [
+        "pdf"
+      ],
+      "max_size_mb": 5,
+      "required_for_stages": [
+        "DAY_1"
+      ]
+    },
+    "DOC-TYPE-002": {
+      "id": "DOC-TYPE-002",
+      "name": "Educational Qualification Certificates",
+      "description": "Scanned copies of degree / diploma certificates.",
+      "is_sensitive": false,
+      "allowed_formats": [
+        "pdf",
+        "jpg",
+        "jpeg",
+        "png"
+      ],
+      "max_size_mb": 10,
+      "required_for_stages": [
+        "PREBOARDING"
+      ]
+    },
+    "DOC-TYPE-003": {
+      "id": "DOC-TYPE-003",
+      "name": "Previous Employment Experience Letter",
+      "description": "Relieving or experience letter from previous employer.",
+      "is_sensitive": false,
+      "allowed_formats": [
+        "pdf"
+      ],
+      "max_size_mb": 5,
+      "required_for_stages": [
+        "PREBOARDING"
+      ]
+    },
+    "DOC-TYPE-004": {
+      "id": "DOC-TYPE-004",
+      "name": "Policy Acknowledgement Form",
+      "description": "Signed acknowledgement of reviewed HR policies.",
+      "is_sensitive": false,
+      "allowed_formats": [
+        "pdf"
+      ],
+      "max_size_mb": 5,
+      "required_for_stages": [
+        "PREBOARDING"
+      ]
+    },
+    "DOC-TYPE-005": {
+      "id": "DOC-TYPE-005",
+      "name": "Bank Account Details Form",
+      "description": "Bank account details for salary credit. RESTRICTED ACCESS.",
+      "is_sensitive": true,
+      "allowed_formats": [
+        "pdf"
+      ],
+      "max_size_mb": 5,
+      "required_for_stages": [
+        "DAY_1"
+      ]
+    },
+    "DOC-TYPE-006": {
+      "id": "DOC-TYPE-006",
+      "name": "30-Day Manager Review Form",
+      "description": "Manager's initial performance review at 30 days.",
+      "is_sensitive": false,
+      "allowed_formats": [
+        "pdf"
+      ],
+      "max_size_mb": 5,
+      "required_for_stages": [
+        "FIRST_30_DAYS"
+      ]
+    }
+  },
+  "onboarding_instances": {
+    "EMP-2001": {
+      "employee_code": "EMP-2001",
+      "full_name": "Kavya Reddy",
+      "email": "kavya.reddy@dspamc.com",
+      "department": "Fixed Income & Debt Markets",
+      "designation": "Fixed Income Analyst",
+      "role": "EMPLOYEE",
+      "joining_date": "2026-10-17",
+      "current_stage": "PREBOARDING",
+      "template_id": "TPL-OB-STANDARD-001",
+      "hr_coordinator_code": "EMP-1005",
+      "hr_coordinator_name": "Ananya Desai",
+      "manager_code": "EMP-1004",
+      "manager_name": "Vikram Malhotra",
+      "buddy_code": "EMP-1001",
+      "buddy_name": "Aditi Sharma",
+      "avatar_initials": "KR",
+      "is_demo": true,
+      "assigned_at": "2026-10-14T17:57:22.543913+00:00",
+      "overall_completion_pct": 0
+    },
+    "EMP-2002": {
+      "employee_code": "EMP-2002",
+      "full_name": "Arjun Pillai",
+      "email": "arjun.pillai@dspamc.com",
+      "department": "Technology & Innovation",
+      "designation": "Software Engineer \u2014 FinTech",
+      "role": "EMPLOYEE",
+      "joining_date": "2026-10-15",
+      "current_stage": "PREBOARDING",
+      "template_id": "TPL-OB-STANDARD-001",
+      "hr_coordinator_code": "EMP-1005",
+      "hr_coordinator_name": "Ananya Desai",
+      "manager_code": "EMP-1004",
+      "manager_name": "Vikram Malhotra",
+      "buddy_code": "EMP-1002",
+      "buddy_name": "Rohan Mehta",
+      "avatar_initials": "AP",
+      "is_demo": true,
+      "assigned_at": "2026-10-14T17:57:22.543925+00:00",
+      "overall_completion_pct": 5
+    },
+    "EMP-2003": {
+      "employee_code": "EMP-2003",
+      "full_name": "Meera Kapoor",
+      "email": "meera.kapoor@dspamc.com",
+      "department": "Risk Management",
+      "designation": "Risk Analyst",
+      "role": "EMPLOYEE",
+      "joining_date": "2026-10-14",
+      "current_stage": "DAY_1",
+      "template_id": "TPL-OB-STANDARD-001",
+      "hr_coordinator_code": "EMP-1005",
+      "hr_coordinator_name": "Ananya Desai",
+      "manager_code": "EMP-1004",
+      "manager_name": "Vikram Malhotra",
+      "buddy_code": "EMP-1003",
+      "buddy_name": "Priya Nair",
+      "avatar_initials": "MK",
+      "is_demo": true,
+      "assigned_at": "2026-10-14T17:57:22.543932+00:00",
+      "overall_completion_pct": 41
+    },
+    "EMP-2004": {
+      "employee_code": "EMP-2004",
+      "full_name": "Rahul Singh",
+      "email": "rahul.singh@dspamc.com",
+      "department": "Equities & Wealth Management",
+      "designation": "Investment Analyst",
+      "role": "EMPLOYEE",
+      "joining_date": "2026-10-08",
+      "current_stage": "FIRST_WEEK",
+      "template_id": "TPL-OB-STANDARD-001",
+      "hr_coordinator_code": "EMP-1005",
+      "hr_coordinator_name": "Ananya Desai",
+      "manager_code": "EMP-1004",
+      "manager_name": "Vikram Malhotra",
+      "buddy_code": "EMP-1001",
+      "buddy_name": "Aditi Sharma",
+      "avatar_initials": "RS",
+      "is_demo": true,
+      "assigned_at": "2026-10-14T17:57:22.543937+00:00",
+      "overall_completion_pct": 64
+    },
+    "EMP-2005": {
+      "employee_code": "EMP-2005",
+      "full_name": "Sneha Joshi",
+      "email": "sneha.joshi@dspamc.com",
+      "department": "Research & Analysis",
+      "designation": "Research Analyst",
+      "role": "EMPLOYEE",
+      "joining_date": "2026-09-09",
+      "current_stage": "COMPLETED",
+      "template_id": "TPL-OB-STANDARD-001",
+      "hr_coordinator_code": "EMP-1005",
+      "hr_coordinator_name": "Ananya Desai",
+      "manager_code": "EMP-1004",
+      "manager_name": "Vikram Malhotra",
+      "buddy_code": "EMP-1001",
+      "buddy_name": "Aditi Sharma",
+      "avatar_initials": "SJ",
+      "is_demo": true,
+      "assigned_at": "2026-10-14T17:57:22.543944+00:00",
+      "completed_at": "2026-10-09",
+      "overall_completion_pct": 100
+    }
+  },
+  "task_instances": {
+    "EMP-2001": {
+      "OINST-2001-0001": {
+        "id": "OINST-2001-0001",
+        "task_template_id": "TASK-PRE-001",
+        "employee_code": "EMP-2001",
+        "stage": "PREBOARDING",
+        "title": "Review onboarding instructions",
+        "description": "Read the onboarding welcome packet and instructions sent by HR. Familiarise yourself with the schedule for your first day.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-10",
+        "status": "IN_PROGRESS",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.543983+00:00",
+        "updated_at": "2026-10-14T18:04:48.181682+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.543992+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          },
+          {
+            "status": "IN_PROGRESS",
+            "changed_at": "2026-10-14T18:03:58.248746+00:00",
+            "changed_by": "EMP-2001",
+            "comments": null
+          },
+          {
+            "status": "IN_PROGRESS",
+            "changed_at": "2026-10-14T18:04:14.298798+00:00",
+            "changed_by": "EMP-2001",
+            "comments": null
+          },
+          {
+            "status": "IN_PROGRESS",
+            "changed_at": "2026-10-14T18:04:30.524578+00:00",
+            "changed_by": "EMP-2001",
+            "comments": null
+          },
+          {
+            "status": "IN_PROGRESS",
+            "changed_at": "2026-10-14T18:04:48.181699+00:00",
+            "changed_by": "EMP-2001",
+            "comments": null
+          }
+        ]
+      },
+      "OINST-2001-0002": {
+        "id": "OINST-2001-0002",
+        "task_template_id": "TASK-PRE-002",
+        "employee_code": "EMP-2001",
+        "stage": "PREBOARDING",
+        "title": "Submit required employment documents",
+        "description": "Upload the documents requested by HR for employment verification. See your document checklist for the specific items required.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-12",
+        "status": "OVERDUE",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544009+00:00",
+        "updated_at": "2026-10-14T17:57:22.544013+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544017+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0003": {
+        "id": "OINST-2001-0003",
+        "task_template_id": "TASK-PRE-003",
+        "employee_code": "EMP-2001",
+        "stage": "PREBOARDING",
+        "title": "Review and acknowledge applicable policies",
+        "description": "Review the Employee Handbook, Code of Conduct, and IT Acceptable Use Policy. Submit the signed acknowledgement form.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-14",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544029+00:00",
+        "updated_at": "2026-10-14T17:57:22.544032+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544036+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0004": {
+        "id": "OINST-2001-0004",
+        "task_template_id": "TASK-PRE-004",
+        "employee_code": "EMP-2001",
+        "stage": "PREBOARDING",
+        "title": "Confirm joining details with HR",
+        "description": "Confirm your joining date, reporting time, and office location with your assigned HR coordinator.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-15",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544046+00:00",
+        "updated_at": "2026-10-14T17:57:22.544050+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544053+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0005": {
+        "id": "OINST-2001-0005",
+        "task_template_id": "TASK-PRE-005",
+        "employee_code": "EMP-2001",
+        "stage": "PREBOARDING",
+        "title": "HR: Prepare joining kit and workstation",
+        "description": "HR to prepare welcome kit, ID card request, and confirm workstation assignment before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-16",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544063+00:00",
+        "updated_at": "2026-10-14T17:57:22.544066+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544070+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0006": {
+        "id": "OINST-2001-0006",
+        "task_template_id": "TASK-PRE-006",
+        "employee_code": "EMP-2001",
+        "stage": "PREBOARDING",
+        "title": "IT: Create system accounts",
+        "description": "IT to create email, network, and system accounts for the new employee before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-16",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544080+00:00",
+        "updated_at": "2026-10-14T17:57:22.544083+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544086+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0007": {
+        "id": "OINST-2001-0007",
+        "task_template_id": "TASK-D1-001",
+        "employee_code": "EMP-2001",
+        "stage": "DAY_1",
+        "title": "Complete joining formalities with HR",
+        "description": "Submit any remaining original documents, sign the appointment letter, and complete HR joining formalities.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "HR",
+        "requires_document": true,
+        "due_date": "2026-10-17",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544098+00:00",
+        "updated_at": "2026-10-14T17:57:22.544101+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544104+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0008": {
+        "id": "OINST-2001-0008",
+        "task_template_id": "TASK-D1-002",
+        "employee_code": "EMP-2001",
+        "stage": "DAY_1",
+        "title": "Attend orientation session",
+        "description": "Attend the mandatory new employee orientation covering DSPAMC's mission, values, organizational structure, and key policies.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-17",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544114+00:00",
+        "updated_at": "2026-10-14T17:57:22.544118+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544121+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0009": {
+        "id": "OINST-2001-0009",
+        "task_template_id": "TASK-D1-003",
+        "employee_code": "EMP-2001",
+        "stage": "DAY_1",
+        "title": "Receive assigned equipment",
+        "description": "Collect or confirm receipt of your assigned laptop, access card, and any role-specific equipment.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-17",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544131+00:00",
+        "updated_at": "2026-10-14T17:57:22.544135+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544139+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0010": {
+        "id": "OINST-2001-0010",
+        "task_template_id": "TASK-D1-004",
+        "employee_code": "EMP-2001",
+        "stage": "DAY_1",
+        "title": "Complete IT account and access setup",
+        "description": "Set up email, VPN, Microsoft Authenticator 2FA, and access the ServiceHub portal. Log the completion through the IT team.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-17",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544150+00:00",
+        "updated_at": "2026-10-14T17:57:22.544154+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544157+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0011": {
+        "id": "OINST-2001-0011",
+        "task_template_id": "TASK-D1-005",
+        "employee_code": "EMP-2001",
+        "stage": "DAY_1",
+        "title": "Review workplace and security guidelines",
+        "description": "Review the workplace safety, physical security access, and emergency procedure guidelines.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-17",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544167+00:00",
+        "updated_at": "2026-10-14T17:57:22.544171+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544174+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0012": {
+        "id": "OINST-2001-0012",
+        "task_template_id": "TASK-D1-006",
+        "employee_code": "EMP-2001",
+        "stage": "DAY_1",
+        "title": "Manager: Introduce employee to team",
+        "description": "Reporting manager to introduce the new employee to their immediate team and key stakeholders.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-10-17",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544184+00:00",
+        "updated_at": "2026-10-14T17:57:22.544188+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544191+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0013": {
+        "id": "OINST-2001-0013",
+        "task_template_id": "TASK-W1-001",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_WEEK",
+        "title": "Complete assigned introductory training",
+        "description": "Complete the assigned introductory training modules available on the DSP Learning Portal.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-22",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544201+00:00",
+        "updated_at": "2026-10-14T17:57:22.544205+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544208+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0014": {
+        "id": "OINST-2001-0014",
+        "task_template_id": "TASK-W1-002",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_WEEK",
+        "title": "Meet reporting manager and team",
+        "description": "Schedule and attend one-on-one introductory meetings with your reporting manager and key team members.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-20",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544218+00:00",
+        "updated_at": "2026-10-14T17:57:22.544221+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544225+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0015": {
+        "id": "OINST-2001-0015",
+        "task_template_id": "TASK-W1-003",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_WEEK",
+        "title": "Review role-specific documentation",
+        "description": "Review the role-specific process guides, team SOPs, and regulatory documentation relevant to your position.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-22",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544235+00:00",
+        "updated_at": "2026-10-14T17:57:22.544238+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544241+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0016": {
+        "id": "OINST-2001-0016",
+        "task_template_id": "TASK-W1-004",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_WEEK",
+        "title": "Complete security awareness training",
+        "description": "Complete the mandatory information security awareness training covering data handling, phishing awareness, and clean desk policy.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-22",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544251+00:00",
+        "updated_at": "2026-10-14T17:57:22.544254+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544257+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0017": {
+        "id": "OINST-2001-0017",
+        "task_template_id": "TASK-W1-005",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_WEEK",
+        "title": "Confirm access to required internal systems",
+        "description": "Verify and confirm that you have access to all systems required for your role. Raise any access issues through ServiceHub.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-22",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544267+00:00",
+        "updated_at": "2026-10-14T17:57:22.544270+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544310+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0018": {
+        "id": "OINST-2001-0018",
+        "task_template_id": "TASK-30D-001",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_30_DAYS",
+        "title": "Complete assigned learning modules",
+        "description": "Complete all mandatory learning modules assigned to your role on the DSP Learning Portal within your first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-11",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544334+00:00",
+        "updated_at": "2026-10-14T17:57:22.544338+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544341+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0019": {
+        "id": "OINST-2001-0019",
+        "task_template_id": "TASK-30D-002",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_30_DAYS",
+        "title": "Review role-specific processes",
+        "description": "Shadow and review the core workflows and processes relevant to your role with your team and manager.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-06",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544353+00:00",
+        "updated_at": "2026-10-14T17:57:22.544356+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544359+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0020": {
+        "id": "OINST-2001-0020",
+        "task_template_id": "TASK-30D-003",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_30_DAYS",
+        "title": "Attend scheduled check-ins with manager",
+        "description": "Attend all scheduled check-in meetings with your reporting manager during the first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-11-16",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544369+00:00",
+        "updated_at": "2026-10-14T17:57:22.544373+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544376+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0021": {
+        "id": "OINST-2001-0021",
+        "task_template_id": "TASK-30D-004",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_30_DAYS",
+        "title": "Submit onboarding feedback form",
+        "description": "Complete the onboarding experience feedback survey to help HR improve the onboarding process.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-16",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544386+00:00",
+        "updated_at": "2026-10-14T17:57:22.544389+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544392+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2001-0022": {
+        "id": "OINST-2001-0022",
+        "task_template_id": "TASK-30D-005",
+        "employee_code": "EMP-2001",
+        "stage": "FIRST_30_DAYS",
+        "title": "Manager: Conduct initial performance review",
+        "description": "Reporting manager to conduct a 30-day initial review meeting, record observations, and submit the review form.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "MANAGER",
+        "requires_document": true,
+        "due_date": "2026-11-16",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544402+00:00",
+        "updated_at": "2026-10-14T17:57:22.544405+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544409+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      }
+    },
+    "EMP-2002": {
+      "OINST-2002-0001": {
+        "id": "OINST-2002-0001",
+        "task_template_id": "TASK-PRE-001",
+        "employee_code": "EMP-2002",
+        "stage": "PREBOARDING",
+        "title": "Review onboarding instructions",
+        "description": "Read the onboarding welcome packet and instructions sent by HR. Familiarise yourself with the schedule for your first day.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-14T17:57:22.544422+00:00",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544433+00:00",
+        "updated_at": "2026-10-14T17:57:22.544436+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544439+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0002": {
+        "id": "OINST-2002-0002",
+        "task_template_id": "TASK-PRE-002",
+        "employee_code": "EMP-2002",
+        "stage": "PREBOARDING",
+        "title": "Submit required employment documents",
+        "description": "Upload the documents requested by HR for employment verification. See your document checklist for the specific items required.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-10",
+        "status": "SUBMITTED_FOR_REVIEW",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544452+00:00",
+        "updated_at": "2026-10-14T17:57:22.544456+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544459+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0003": {
+        "id": "OINST-2002-0003",
+        "task_template_id": "TASK-PRE-003",
+        "employee_code": "EMP-2002",
+        "stage": "PREBOARDING",
+        "title": "Review and acknowledge applicable policies",
+        "description": "Review the Employee Handbook, Code of Conduct, and IT Acceptable Use Policy. Submit the signed acknowledgement form.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-12",
+        "status": "OVERDUE",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544470+00:00",
+        "updated_at": "2026-10-14T17:57:22.544473+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544476+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0004": {
+        "id": "OINST-2002-0004",
+        "task_template_id": "TASK-PRE-004",
+        "employee_code": "EMP-2002",
+        "stage": "PREBOARDING",
+        "title": "Confirm joining details with HR",
+        "description": "Confirm your joining date, reporting time, and office location with your assigned HR coordinator.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-13",
+        "status": "OVERDUE",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544486+00:00",
+        "updated_at": "2026-10-14T17:57:22.544490+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544493+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0005": {
+        "id": "OINST-2002-0005",
+        "task_template_id": "TASK-PRE-005",
+        "employee_code": "EMP-2002",
+        "stage": "PREBOARDING",
+        "title": "HR: Prepare joining kit and workstation",
+        "description": "HR to prepare welcome kit, ID card request, and confirm workstation assignment before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-14",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544504+00:00",
+        "updated_at": "2026-10-14T17:57:22.544507+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544510+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0006": {
+        "id": "OINST-2002-0006",
+        "task_template_id": "TASK-PRE-006",
+        "employee_code": "EMP-2002",
+        "stage": "PREBOARDING",
+        "title": "IT: Create system accounts",
+        "description": "IT to create email, network, and system accounts for the new employee before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-14",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544521+00:00",
+        "updated_at": "2026-10-14T17:57:22.544524+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544527+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0007": {
+        "id": "OINST-2002-0007",
+        "task_template_id": "TASK-D1-001",
+        "employee_code": "EMP-2002",
+        "stage": "DAY_1",
+        "title": "Complete joining formalities with HR",
+        "description": "Submit any remaining original documents, sign the appointment letter, and complete HR joining formalities.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "HR",
+        "requires_document": true,
+        "due_date": "2026-10-15",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544539+00:00",
+        "updated_at": "2026-10-14T17:57:22.544543+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544546+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0008": {
+        "id": "OINST-2002-0008",
+        "task_template_id": "TASK-D1-002",
+        "employee_code": "EMP-2002",
+        "stage": "DAY_1",
+        "title": "Attend orientation session",
+        "description": "Attend the mandatory new employee orientation covering DSPAMC's mission, values, organizational structure, and key policies.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-15",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544556+00:00",
+        "updated_at": "2026-10-14T17:57:22.544560+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544563+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0009": {
+        "id": "OINST-2002-0009",
+        "task_template_id": "TASK-D1-003",
+        "employee_code": "EMP-2002",
+        "stage": "DAY_1",
+        "title": "Receive assigned equipment",
+        "description": "Collect or confirm receipt of your assigned laptop, access card, and any role-specific equipment.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-15",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544572+00:00",
+        "updated_at": "2026-10-14T17:57:22.544575+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544579+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0010": {
+        "id": "OINST-2002-0010",
+        "task_template_id": "TASK-D1-004",
+        "employee_code": "EMP-2002",
+        "stage": "DAY_1",
+        "title": "Complete IT account and access setup",
+        "description": "Set up email, VPN, Microsoft Authenticator 2FA, and access the ServiceHub portal. Log the completion through the IT team.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-15",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544588+00:00",
+        "updated_at": "2026-10-14T17:57:22.544591+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544595+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0011": {
+        "id": "OINST-2002-0011",
+        "task_template_id": "TASK-D1-005",
+        "employee_code": "EMP-2002",
+        "stage": "DAY_1",
+        "title": "Review workplace and security guidelines",
+        "description": "Review the workplace safety, physical security access, and emergency procedure guidelines.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-15",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544604+00:00",
+        "updated_at": "2026-10-14T17:57:22.544607+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544610+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0012": {
+        "id": "OINST-2002-0012",
+        "task_template_id": "TASK-D1-006",
+        "employee_code": "EMP-2002",
+        "stage": "DAY_1",
+        "title": "Manager: Introduce employee to team",
+        "description": "Reporting manager to introduce the new employee to their immediate team and key stakeholders.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-10-15",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544619+00:00",
+        "updated_at": "2026-10-14T17:57:22.544622+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544625+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0013": {
+        "id": "OINST-2002-0013",
+        "task_template_id": "TASK-W1-001",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_WEEK",
+        "title": "Complete assigned introductory training",
+        "description": "Complete the assigned introductory training modules available on the DSP Learning Portal.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-20",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544635+00:00",
+        "updated_at": "2026-10-14T17:57:22.544639+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544651+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0014": {
+        "id": "OINST-2002-0014",
+        "task_template_id": "TASK-W1-002",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_WEEK",
+        "title": "Meet reporting manager and team",
+        "description": "Schedule and attend one-on-one introductory meetings with your reporting manager and key team members.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-18",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544665+00:00",
+        "updated_at": "2026-10-14T17:57:22.544668+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544671+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0015": {
+        "id": "OINST-2002-0015",
+        "task_template_id": "TASK-W1-003",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_WEEK",
+        "title": "Review role-specific documentation",
+        "description": "Review the role-specific process guides, team SOPs, and regulatory documentation relevant to your position.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-20",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544681+00:00",
+        "updated_at": "2026-10-14T17:57:22.544684+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544687+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0016": {
+        "id": "OINST-2002-0016",
+        "task_template_id": "TASK-W1-004",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_WEEK",
+        "title": "Complete security awareness training",
+        "description": "Complete the mandatory information security awareness training covering data handling, phishing awareness, and clean desk policy.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-20",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544696+00:00",
+        "updated_at": "2026-10-14T17:57:22.544699+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544702+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0017": {
+        "id": "OINST-2002-0017",
+        "task_template_id": "TASK-W1-005",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_WEEK",
+        "title": "Confirm access to required internal systems",
+        "description": "Verify and confirm that you have access to all systems required for your role. Raise any access issues through ServiceHub.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-20",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544712+00:00",
+        "updated_at": "2026-10-14T17:57:22.544715+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544718+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0018": {
+        "id": "OINST-2002-0018",
+        "task_template_id": "TASK-30D-001",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_30_DAYS",
+        "title": "Complete assigned learning modules",
+        "description": "Complete all mandatory learning modules assigned to your role on the DSP Learning Portal within your first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-09",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544728+00:00",
+        "updated_at": "2026-10-14T17:57:22.544732+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544735+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0019": {
+        "id": "OINST-2002-0019",
+        "task_template_id": "TASK-30D-002",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_30_DAYS",
+        "title": "Review role-specific processes",
+        "description": "Shadow and review the core workflows and processes relevant to your role with your team and manager.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-04",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544744+00:00",
+        "updated_at": "2026-10-14T17:57:22.544747+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544751+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0020": {
+        "id": "OINST-2002-0020",
+        "task_template_id": "TASK-30D-003",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_30_DAYS",
+        "title": "Attend scheduled check-ins with manager",
+        "description": "Attend all scheduled check-in meetings with your reporting manager during the first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-11-14",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544760+00:00",
+        "updated_at": "2026-10-14T17:57:22.544763+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544766+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0021": {
+        "id": "OINST-2002-0021",
+        "task_template_id": "TASK-30D-004",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_30_DAYS",
+        "title": "Submit onboarding feedback form",
+        "description": "Complete the onboarding experience feedback survey to help HR improve the onboarding process.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-14",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544775+00:00",
+        "updated_at": "2026-10-14T17:57:22.544778+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544781+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2002-0022": {
+        "id": "OINST-2002-0022",
+        "task_template_id": "TASK-30D-005",
+        "employee_code": "EMP-2002",
+        "stage": "FIRST_30_DAYS",
+        "title": "Manager: Conduct initial performance review",
+        "description": "Reporting manager to conduct a 30-day initial review meeting, record observations, and submit the review form.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "MANAGER",
+        "requires_document": true,
+        "due_date": "2026-11-14",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544790+00:00",
+        "updated_at": "2026-10-14T17:57:22.544794+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544797+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      }
+    },
+    "EMP-2003": {
+      "OINST-2003-0001": {
+        "id": "OINST-2003-0001",
+        "task_template_id": "TASK-PRE-001",
+        "employee_code": "EMP-2003",
+        "stage": "PREBOARDING",
+        "title": "Review onboarding instructions",
+        "description": "Read the onboarding welcome packet and instructions sent by HR. Familiarise yourself with the schedule for your first day.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-07",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-12",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544813+00:00",
+        "updated_at": "2026-10-14T17:57:22.544816+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544819+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0002": {
+        "id": "OINST-2003-0002",
+        "task_template_id": "TASK-PRE-002",
+        "employee_code": "EMP-2003",
+        "stage": "PREBOARDING",
+        "title": "Submit required employment documents",
+        "description": "Upload the documents requested by HR for employment verification. See your document checklist for the specific items required.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-12",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544868+00:00",
+        "updated_at": "2026-10-14T17:57:22.544872+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544875+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0003": {
+        "id": "OINST-2003-0003",
+        "task_template_id": "TASK-PRE-003",
+        "employee_code": "EMP-2003",
+        "stage": "PREBOARDING",
+        "title": "Review and acknowledge applicable policies",
+        "description": "Review the Employee Handbook, Code of Conduct, and IT Acceptable Use Policy. Submit the signed acknowledgement form.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-11",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-12",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544888+00:00",
+        "updated_at": "2026-10-14T17:57:22.544891+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544894+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0004": {
+        "id": "OINST-2003-0004",
+        "task_template_id": "TASK-PRE-004",
+        "employee_code": "EMP-2003",
+        "stage": "PREBOARDING",
+        "title": "Confirm joining details with HR",
+        "description": "Confirm your joining date, reporting time, and office location with your assigned HR coordinator.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-12",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-12",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544906+00:00",
+        "updated_at": "2026-10-14T17:57:22.544909+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544912+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0005": {
+        "id": "OINST-2003-0005",
+        "task_template_id": "TASK-PRE-005",
+        "employee_code": "EMP-2003",
+        "stage": "PREBOARDING",
+        "title": "HR: Prepare joining kit and workstation",
+        "description": "HR to prepare welcome kit, ID card request, and confirm workstation assignment before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-13",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-12",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544923+00:00",
+        "updated_at": "2026-10-14T17:57:22.544927+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544930+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0006": {
+        "id": "OINST-2003-0006",
+        "task_template_id": "TASK-PRE-006",
+        "employee_code": "EMP-2003",
+        "stage": "PREBOARDING",
+        "title": "IT: Create system accounts",
+        "description": "IT to create email, network, and system accounts for the new employee before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-13",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-12",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544942+00:00",
+        "updated_at": "2026-10-14T17:57:22.544945+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544949+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0007": {
+        "id": "OINST-2003-0007",
+        "task_template_id": "TASK-D1-001",
+        "employee_code": "EMP-2003",
+        "stage": "DAY_1",
+        "title": "Complete joining formalities with HR",
+        "description": "Submit any remaining original documents, sign the appointment letter, and complete HR joining formalities.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "HR",
+        "requires_document": true,
+        "due_date": "2026-10-14",
+        "status": "SUBMITTED_FOR_REVIEW",
+        "completed_at": null,
+        "hr_comments": "Pending HR review of submitted documents.",
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544963+00:00",
+        "updated_at": "2026-10-14T17:57:22.544967+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544970+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0008": {
+        "id": "OINST-2003-0008",
+        "task_template_id": "TASK-D1-002",
+        "employee_code": "EMP-2003",
+        "stage": "DAY_1",
+        "title": "Attend orientation session",
+        "description": "Attend the mandatory new employee orientation covering DSPAMC's mission, values, organizational structure, and key policies.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-14",
+        "status": "COMPLETED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544981+00:00",
+        "updated_at": "2026-10-14T17:57:22.544985+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.544988+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0009": {
+        "id": "OINST-2003-0009",
+        "task_template_id": "TASK-D1-003",
+        "employee_code": "EMP-2003",
+        "stage": "DAY_1",
+        "title": "Receive assigned equipment",
+        "description": "Collect or confirm receipt of your assigned laptop, access card, and any role-specific equipment.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-14",
+        "status": "IN_PROGRESS",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.544999+00:00",
+        "updated_at": "2026-10-14T17:57:22.545002+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545005+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0010": {
+        "id": "OINST-2003-0010",
+        "task_template_id": "TASK-D1-004",
+        "employee_code": "EMP-2003",
+        "stage": "DAY_1",
+        "title": "Complete IT account and access setup",
+        "description": "Set up email, VPN, Microsoft Authenticator 2FA, and access the ServiceHub portal. Log the completion through the IT team.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-14",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545015+00:00",
+        "updated_at": "2026-10-14T17:57:22.545018+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545021+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0011": {
+        "id": "OINST-2003-0011",
+        "task_template_id": "TASK-D1-005",
+        "employee_code": "EMP-2003",
+        "stage": "DAY_1",
+        "title": "Review workplace and security guidelines",
+        "description": "Review the workplace safety, physical security access, and emergency procedure guidelines.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-14",
+        "status": "COMPLETED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545031+00:00",
+        "updated_at": "2026-10-14T17:57:22.545034+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545037+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0012": {
+        "id": "OINST-2003-0012",
+        "task_template_id": "TASK-D1-006",
+        "employee_code": "EMP-2003",
+        "stage": "DAY_1",
+        "title": "Manager: Introduce employee to team",
+        "description": "Reporting manager to introduce the new employee to their immediate team and key stakeholders.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-10-14",
+        "status": "COMPLETED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545047+00:00",
+        "updated_at": "2026-10-14T17:57:22.545050+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545053+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0013": {
+        "id": "OINST-2003-0013",
+        "task_template_id": "TASK-W1-001",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_WEEK",
+        "title": "Complete assigned introductory training",
+        "description": "Complete the assigned introductory training modules available on the DSP Learning Portal.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-19",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545064+00:00",
+        "updated_at": "2026-10-14T17:57:22.545068+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545071+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0014": {
+        "id": "OINST-2003-0014",
+        "task_template_id": "TASK-W1-002",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_WEEK",
+        "title": "Meet reporting manager and team",
+        "description": "Schedule and attend one-on-one introductory meetings with your reporting manager and key team members.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-17",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545082+00:00",
+        "updated_at": "2026-10-14T17:57:22.545086+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545089+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0015": {
+        "id": "OINST-2003-0015",
+        "task_template_id": "TASK-W1-003",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_WEEK",
+        "title": "Review role-specific documentation",
+        "description": "Review the role-specific process guides, team SOPs, and regulatory documentation relevant to your position.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-19",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545099+00:00",
+        "updated_at": "2026-10-14T17:57:22.545102+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545105+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0016": {
+        "id": "OINST-2003-0016",
+        "task_template_id": "TASK-W1-004",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_WEEK",
+        "title": "Complete security awareness training",
+        "description": "Complete the mandatory information security awareness training covering data handling, phishing awareness, and clean desk policy.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-19",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545115+00:00",
+        "updated_at": "2026-10-14T17:57:22.545118+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545121+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0017": {
+        "id": "OINST-2003-0017",
+        "task_template_id": "TASK-W1-005",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_WEEK",
+        "title": "Confirm access to required internal systems",
+        "description": "Verify and confirm that you have access to all systems required for your role. Raise any access issues through ServiceHub.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-19",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545130+00:00",
+        "updated_at": "2026-10-14T17:57:22.545134+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545137+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0018": {
+        "id": "OINST-2003-0018",
+        "task_template_id": "TASK-30D-001",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_30_DAYS",
+        "title": "Complete assigned learning modules",
+        "description": "Complete all mandatory learning modules assigned to your role on the DSP Learning Portal within your first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-08",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545146+00:00",
+        "updated_at": "2026-10-14T17:57:22.545150+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545153+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0019": {
+        "id": "OINST-2003-0019",
+        "task_template_id": "TASK-30D-002",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_30_DAYS",
+        "title": "Review role-specific processes",
+        "description": "Shadow and review the core workflows and processes relevant to your role with your team and manager.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-03",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545163+00:00",
+        "updated_at": "2026-10-14T17:57:22.545166+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545169+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0020": {
+        "id": "OINST-2003-0020",
+        "task_template_id": "TASK-30D-003",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_30_DAYS",
+        "title": "Attend scheduled check-ins with manager",
+        "description": "Attend all scheduled check-in meetings with your reporting manager during the first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-11-13",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545179+00:00",
+        "updated_at": "2026-10-14T17:57:22.545182+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545185+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0021": {
+        "id": "OINST-2003-0021",
+        "task_template_id": "TASK-30D-004",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_30_DAYS",
+        "title": "Submit onboarding feedback form",
+        "description": "Complete the onboarding experience feedback survey to help HR improve the onboarding process.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-13",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545194+00:00",
+        "updated_at": "2026-10-14T17:57:22.545198+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545201+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2003-0022": {
+        "id": "OINST-2003-0022",
+        "task_template_id": "TASK-30D-005",
+        "employee_code": "EMP-2003",
+        "stage": "FIRST_30_DAYS",
+        "title": "Manager: Conduct initial performance review",
+        "description": "Reporting manager to conduct a 30-day initial review meeting, record observations, and submit the review form.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "MANAGER",
+        "requires_document": true,
+        "due_date": "2026-11-13",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545210+00:00",
+        "updated_at": "2026-10-14T17:57:22.545213+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545217+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      }
+    },
+    "EMP-2004": {
+      "OINST-2004-0001": {
+        "id": "OINST-2004-0001",
+        "task_template_id": "TASK-PRE-001",
+        "employee_code": "EMP-2004",
+        "stage": "PREBOARDING",
+        "title": "Review onboarding instructions",
+        "description": "Read the onboarding welcome packet and instructions sent by HR. Familiarise yourself with the schedule for your first day.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-01",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545232+00:00",
+        "updated_at": "2026-10-14T17:57:22.545235+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545238+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0002": {
+        "id": "OINST-2004-0002",
+        "task_template_id": "TASK-PRE-002",
+        "employee_code": "EMP-2004",
+        "stage": "PREBOARDING",
+        "title": "Submit required employment documents",
+        "description": "Upload the documents requested by HR for employment verification. See your document checklist for the specific items required.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-03",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545251+00:00",
+        "updated_at": "2026-10-14T17:57:22.545254+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545257+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0003": {
+        "id": "OINST-2004-0003",
+        "task_template_id": "TASK-PRE-003",
+        "employee_code": "EMP-2004",
+        "stage": "PREBOARDING",
+        "title": "Review and acknowledge applicable policies",
+        "description": "Review the Employee Handbook, Code of Conduct, and IT Acceptable Use Policy. Submit the signed acknowledgement form.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-10-05",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545269+00:00",
+        "updated_at": "2026-10-14T17:57:22.545272+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545275+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0004": {
+        "id": "OINST-2004-0004",
+        "task_template_id": "TASK-PRE-004",
+        "employee_code": "EMP-2004",
+        "stage": "PREBOARDING",
+        "title": "Confirm joining details with HR",
+        "description": "Confirm your joining date, reporting time, and office location with your assigned HR coordinator.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-06",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545286+00:00",
+        "updated_at": "2026-10-14T17:57:22.545289+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545292+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0005": {
+        "id": "OINST-2004-0005",
+        "task_template_id": "TASK-PRE-005",
+        "employee_code": "EMP-2004",
+        "stage": "PREBOARDING",
+        "title": "HR: Prepare joining kit and workstation",
+        "description": "HR to prepare welcome kit, ID card request, and confirm workstation assignment before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-07",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545303+00:00",
+        "updated_at": "2026-10-14T17:57:22.545307+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545310+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0006": {
+        "id": "OINST-2004-0006",
+        "task_template_id": "TASK-PRE-006",
+        "employee_code": "EMP-2004",
+        "stage": "PREBOARDING",
+        "title": "IT: Create system accounts",
+        "description": "IT to create email, network, and system accounts for the new employee before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-07",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545321+00:00",
+        "updated_at": "2026-10-14T17:57:22.545324+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545328+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0007": {
+        "id": "OINST-2004-0007",
+        "task_template_id": "TASK-D1-001",
+        "employee_code": "EMP-2004",
+        "stage": "DAY_1",
+        "title": "Complete joining formalities with HR",
+        "description": "Submit any remaining original documents, sign the appointment letter, and complete HR joining formalities.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "HR",
+        "requires_document": true,
+        "due_date": "2026-10-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545339+00:00",
+        "updated_at": "2026-10-14T17:57:22.545343+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545346+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0008": {
+        "id": "OINST-2004-0008",
+        "task_template_id": "TASK-D1-002",
+        "employee_code": "EMP-2004",
+        "stage": "DAY_1",
+        "title": "Attend orientation session",
+        "description": "Attend the mandatory new employee orientation covering DSPAMC's mission, values, organizational structure, and key policies.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-10-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545357+00:00",
+        "updated_at": "2026-10-14T17:57:22.545381+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545385+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0009": {
+        "id": "OINST-2004-0009",
+        "task_template_id": "TASK-D1-003",
+        "employee_code": "EMP-2004",
+        "stage": "DAY_1",
+        "title": "Receive assigned equipment",
+        "description": "Collect or confirm receipt of your assigned laptop, access card, and any role-specific equipment.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545404+00:00",
+        "updated_at": "2026-10-14T17:57:22.545408+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545411+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0010": {
+        "id": "OINST-2004-0010",
+        "task_template_id": "TASK-D1-004",
+        "employee_code": "EMP-2004",
+        "stage": "DAY_1",
+        "title": "Complete IT account and access setup",
+        "description": "Set up email, VPN, Microsoft Authenticator 2FA, and access the ServiceHub portal. Log the completion through the IT team.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-10-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545423+00:00",
+        "updated_at": "2026-10-14T17:57:22.545426+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545429+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0011": {
+        "id": "OINST-2004-0011",
+        "task_template_id": "TASK-D1-005",
+        "employee_code": "EMP-2004",
+        "stage": "DAY_1",
+        "title": "Review workplace and security guidelines",
+        "description": "Review the workplace safety, physical security access, and emergency procedure guidelines.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545440+00:00",
+        "updated_at": "2026-10-14T17:57:22.545443+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545446+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0012": {
+        "id": "OINST-2004-0012",
+        "task_template_id": "TASK-D1-006",
+        "employee_code": "EMP-2004",
+        "stage": "DAY_1",
+        "title": "Manager: Introduce employee to team",
+        "description": "Reporting manager to introduce the new employee to their immediate team and key stakeholders.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-10-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-09",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545457+00:00",
+        "updated_at": "2026-10-14T17:57:22.545461+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545464+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0013": {
+        "id": "OINST-2004-0013",
+        "task_template_id": "TASK-W1-001",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_WEEK",
+        "title": "Complete assigned introductory training",
+        "description": "Complete the assigned introductory training modules available on the DSP Learning Portal.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-13",
+        "status": "COMPLETED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545477+00:00",
+        "updated_at": "2026-10-14T17:57:22.545480+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545483+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0014": {
+        "id": "OINST-2004-0014",
+        "task_template_id": "TASK-W1-002",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_WEEK",
+        "title": "Meet reporting manager and team",
+        "description": "Schedule and attend one-on-one introductory meetings with your reporting manager and key team members.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-11",
+        "status": "COMPLETED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545493+00:00",
+        "updated_at": "2026-10-14T17:57:22.545497+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545500+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0015": {
+        "id": "OINST-2004-0015",
+        "task_template_id": "TASK-W1-003",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_WEEK",
+        "title": "Review role-specific documentation",
+        "description": "Review the role-specific process guides, team SOPs, and regulatory documentation relevant to your position.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-13",
+        "status": "IN_PROGRESS",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545510+00:00",
+        "updated_at": "2026-10-14T17:57:22.545514+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545517+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0016": {
+        "id": "OINST-2004-0016",
+        "task_template_id": "TASK-W1-004",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_WEEK",
+        "title": "Complete security awareness training",
+        "description": "Complete the mandatory information security awareness training covering data handling, phishing awareness, and clean desk policy.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-13",
+        "status": "OVERDUE",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545527+00:00",
+        "updated_at": "2026-10-14T17:57:22.545530+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545533+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0017": {
+        "id": "OINST-2004-0017",
+        "task_template_id": "TASK-W1-005",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_WEEK",
+        "title": "Confirm access to required internal systems",
+        "description": "Verify and confirm that you have access to all systems required for your role. Raise any access issues through ServiceHub.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-13",
+        "status": "ACTION_REQUIRED",
+        "completed_at": null,
+        "hr_comments": "IT access to Bloomberg terminal pending provisioning.",
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545543+00:00",
+        "updated_at": "2026-10-14T17:57:22.545547+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545550+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0018": {
+        "id": "OINST-2004-0018",
+        "task_template_id": "TASK-30D-001",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_30_DAYS",
+        "title": "Complete assigned learning modules",
+        "description": "Complete all mandatory learning modules assigned to your role on the DSP Learning Portal within your first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-02",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545561+00:00",
+        "updated_at": "2026-10-14T17:57:22.545565+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545568+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0019": {
+        "id": "OINST-2004-0019",
+        "task_template_id": "TASK-30D-002",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_30_DAYS",
+        "title": "Review role-specific processes",
+        "description": "Shadow and review the core workflows and processes relevant to your role with your team and manager.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-28",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545578+00:00",
+        "updated_at": "2026-10-14T17:57:22.545582+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545585+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0020": {
+        "id": "OINST-2004-0020",
+        "task_template_id": "TASK-30D-003",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_30_DAYS",
+        "title": "Attend scheduled check-ins with manager",
+        "description": "Attend all scheduled check-in meetings with your reporting manager during the first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-11-07",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545595+00:00",
+        "updated_at": "2026-10-14T17:57:22.545599+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545602+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0021": {
+        "id": "OINST-2004-0021",
+        "task_template_id": "TASK-30D-004",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_30_DAYS",
+        "title": "Submit onboarding feedback form",
+        "description": "Complete the onboarding experience feedback survey to help HR improve the onboarding process.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-11-07",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545612+00:00",
+        "updated_at": "2026-10-14T17:57:22.545615+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545618+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2004-0022": {
+        "id": "OINST-2004-0022",
+        "task_template_id": "TASK-30D-005",
+        "employee_code": "EMP-2004",
+        "stage": "FIRST_30_DAYS",
+        "title": "Manager: Conduct initial performance review",
+        "description": "Reporting manager to conduct a 30-day initial review meeting, record observations, and submit the review form.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "MANAGER",
+        "requires_document": true,
+        "due_date": "2026-11-07",
+        "status": "NOT_STARTED",
+        "completed_at": null,
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545628+00:00",
+        "updated_at": "2026-10-14T17:57:22.545631+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545634+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      }
+    },
+    "EMP-2005": {
+      "OINST-2005-0001": {
+        "id": "OINST-2005-0001",
+        "task_template_id": "TASK-PRE-001",
+        "employee_code": "EMP-2005",
+        "stage": "PREBOARDING",
+        "title": "Review onboarding instructions",
+        "description": "Read the onboarding welcome packet and instructions sent by HR. Familiarise yourself with the schedule for your first day.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-02",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-15",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545651+00:00",
+        "updated_at": "2026-10-14T17:57:22.545654+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545658+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0002": {
+        "id": "OINST-2005-0002",
+        "task_template_id": "TASK-PRE-002",
+        "employee_code": "EMP-2005",
+        "stage": "PREBOARDING",
+        "title": "Submit required employment documents",
+        "description": "Upload the documents requested by HR for employment verification. See your document checklist for the specific items required.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-09-04",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-16",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545671+00:00",
+        "updated_at": "2026-10-14T17:57:22.545674+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545677+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0003": {
+        "id": "OINST-2005-0003",
+        "task_template_id": "TASK-PRE-003",
+        "employee_code": "EMP-2005",
+        "stage": "PREBOARDING",
+        "title": "Review and acknowledge applicable policies",
+        "description": "Review the Employee Handbook, Code of Conduct, and IT Acceptable Use Policy. Submit the signed acknowledgement form.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": true,
+        "due_date": "2026-09-06",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-17",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545690+00:00",
+        "updated_at": "2026-10-14T17:57:22.545693+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545696+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0004": {
+        "id": "OINST-2005-0004",
+        "task_template_id": "TASK-PRE-004",
+        "employee_code": "EMP-2005",
+        "stage": "PREBOARDING",
+        "title": "Confirm joining details with HR",
+        "description": "Confirm your joining date, reporting time, and office location with your assigned HR coordinator.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-07",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-18",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545708+00:00",
+        "updated_at": "2026-10-14T17:57:22.545711+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545715+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0005": {
+        "id": "OINST-2005-0005",
+        "task_template_id": "TASK-PRE-005",
+        "employee_code": "EMP-2005",
+        "stage": "PREBOARDING",
+        "title": "HR: Prepare joining kit and workstation",
+        "description": "HR to prepare welcome kit, ID card request, and confirm workstation assignment before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-09-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-19",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545726+00:00",
+        "updated_at": "2026-10-14T17:57:22.545730+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545733+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0006": {
+        "id": "OINST-2005-0006",
+        "task_template_id": "TASK-PRE-006",
+        "employee_code": "EMP-2005",
+        "stage": "PREBOARDING",
+        "title": "IT: Create system accounts",
+        "description": "IT to create email, network, and system accounts for the new employee before joining date.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-09-08",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-20",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545744+00:00",
+        "updated_at": "2026-10-14T17:57:22.545748+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545750+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0007": {
+        "id": "OINST-2005-0007",
+        "task_template_id": "TASK-D1-001",
+        "employee_code": "EMP-2005",
+        "stage": "DAY_1",
+        "title": "Complete joining formalities with HR",
+        "description": "Submit any remaining original documents, sign the appointment letter, and complete HR joining formalities.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "HR",
+        "requires_document": true,
+        "due_date": "2026-09-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-21",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545763+00:00",
+        "updated_at": "2026-10-14T17:57:22.545766+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545769+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0008": {
+        "id": "OINST-2005-0008",
+        "task_template_id": "TASK-D1-002",
+        "employee_code": "EMP-2005",
+        "stage": "DAY_1",
+        "title": "Attend orientation session",
+        "description": "Attend the mandatory new employee orientation covering DSPAMC's mission, values, organizational structure, and key policies.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "HR",
+        "requires_document": false,
+        "due_date": "2026-09-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-22",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545780+00:00",
+        "updated_at": "2026-10-14T17:57:22.545784+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545787+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0009": {
+        "id": "OINST-2005-0009",
+        "task_template_id": "TASK-D1-003",
+        "employee_code": "EMP-2005",
+        "stage": "DAY_1",
+        "title": "Receive assigned equipment",
+        "description": "Collect or confirm receipt of your assigned laptop, access card, and any role-specific equipment.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-09-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-23",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545799+00:00",
+        "updated_at": "2026-10-14T17:57:22.545802+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545805+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0010": {
+        "id": "OINST-2005-0010",
+        "task_template_id": "TASK-D1-004",
+        "employee_code": "EMP-2005",
+        "stage": "DAY_1",
+        "title": "Complete IT account and access setup",
+        "description": "Set up email, VPN, Microsoft Authenticator 2FA, and access the ServiceHub portal. Log the completion through the IT team.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "IT",
+        "requires_document": false,
+        "due_date": "2026-09-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-24",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545816+00:00",
+        "updated_at": "2026-10-14T17:57:22.545820+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545823+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0011": {
+        "id": "OINST-2005-0011",
+        "task_template_id": "TASK-D1-005",
+        "employee_code": "EMP-2005",
+        "stage": "DAY_1",
+        "title": "Review workplace and security guidelines",
+        "description": "Review the workplace safety, physical security access, and emergency procedure guidelines.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-25",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545834+00:00",
+        "updated_at": "2026-10-14T17:57:22.545838+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545841+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0012": {
+        "id": "OINST-2005-0012",
+        "task_template_id": "TASK-D1-006",
+        "employee_code": "EMP-2005",
+        "stage": "DAY_1",
+        "title": "Manager: Introduce employee to team",
+        "description": "Reporting manager to introduce the new employee to their immediate team and key stakeholders.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-09-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-26",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545853+00:00",
+        "updated_at": "2026-10-14T17:57:22.545857+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545860+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0013": {
+        "id": "OINST-2005-0013",
+        "task_template_id": "TASK-W1-001",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_WEEK",
+        "title": "Complete assigned introductory training",
+        "description": "Complete the assigned introductory training modules available on the DSP Learning Portal.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-14",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-27",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545872+00:00",
+        "updated_at": "2026-10-14T17:57:22.545875+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545878+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0014": {
+        "id": "OINST-2005-0014",
+        "task_template_id": "TASK-W1-002",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_WEEK",
+        "title": "Meet reporting manager and team",
+        "description": "Schedule and attend one-on-one introductory meetings with your reporting manager and key team members.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-12",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-28",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545890+00:00",
+        "updated_at": "2026-10-14T17:57:22.545918+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545921+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0015": {
+        "id": "OINST-2005-0015",
+        "task_template_id": "TASK-W1-003",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_WEEK",
+        "title": "Review role-specific documentation",
+        "description": "Review the role-specific process guides, team SOPs, and regulatory documentation relevant to your position.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-14",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-29",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545941+00:00",
+        "updated_at": "2026-10-14T17:57:22.545945+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545948+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0016": {
+        "id": "OINST-2005-0016",
+        "task_template_id": "TASK-W1-004",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_WEEK",
+        "title": "Complete security awareness training",
+        "description": "Complete the mandatory information security awareness training covering data handling, phishing awareness, and clean desk policy.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-14",
+        "status": "COMPLETED",
+        "completed_at": "2026-09-30",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545960+00:00",
+        "updated_at": "2026-10-14T17:57:22.545964+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545966+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0017": {
+        "id": "OINST-2005-0017",
+        "task_template_id": "TASK-W1-005",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_WEEK",
+        "title": "Confirm access to required internal systems",
+        "description": "Verify and confirm that you have access to all systems required for your role. Raise any access issues through ServiceHub.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-14",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-01",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545978+00:00",
+        "updated_at": "2026-10-14T17:57:22.545981+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.545984+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0018": {
+        "id": "OINST-2005-0018",
+        "task_template_id": "TASK-30D-001",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_30_DAYS",
+        "title": "Complete assigned learning modules",
+        "description": "Complete all mandatory learning modules assigned to your role on the DSP Learning Portal within your first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-04",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-02",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.545996+00:00",
+        "updated_at": "2026-10-14T17:57:22.545999+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.546002+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0019": {
+        "id": "OINST-2005-0019",
+        "task_template_id": "TASK-30D-002",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_30_DAYS",
+        "title": "Review role-specific processes",
+        "description": "Shadow and review the core workflows and processes relevant to your role with your team and manager.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-09-29",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-03",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.546014+00:00",
+        "updated_at": "2026-10-14T17:57:22.546017+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.546020+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0020": {
+        "id": "OINST-2005-0020",
+        "task_template_id": "TASK-30D-003",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_30_DAYS",
+        "title": "Attend scheduled check-ins with manager",
+        "description": "Attend all scheduled check-in meetings with your reporting manager during the first 30 days.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "MANAGER",
+        "requires_document": false,
+        "due_date": "2026-10-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-04",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.546032+00:00",
+        "updated_at": "2026-10-14T17:57:22.546036+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.546038+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0021": {
+        "id": "OINST-2005-0021",
+        "task_template_id": "TASK-30D-004",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_30_DAYS",
+        "title": "Submit onboarding feedback form",
+        "description": "Complete the onboarding experience feedback survey to help HR improve the onboarding process.",
+        "is_required": true,
+        "requires_approval": false,
+        "responsible_party": "EMPLOYEE",
+        "requires_document": false,
+        "due_date": "2026-10-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-05",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.546050+00:00",
+        "updated_at": "2026-10-14T17:57:22.546054+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.546057+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      },
+      "OINST-2005-0022": {
+        "id": "OINST-2005-0022",
+        "task_template_id": "TASK-30D-005",
+        "employee_code": "EMP-2005",
+        "stage": "FIRST_30_DAYS",
+        "title": "Manager: Conduct initial performance review",
+        "description": "Reporting manager to conduct a 30-day initial review meeting, record observations, and submit the review form.",
+        "is_required": true,
+        "requires_approval": true,
+        "responsible_party": "MANAGER",
+        "requires_document": true,
+        "due_date": "2026-10-09",
+        "status": "COMPLETED",
+        "completed_at": "2026-10-06",
+        "hr_comments": null,
+        "employee_comments": null,
+        "created_at": "2026-10-14T17:57:22.546068+00:00",
+        "updated_at": "2026-10-14T17:57:22.546072+00:00",
+        "status_history": [
+          {
+            "status": "NOT_STARTED",
+            "changed_at": "2026-10-14T17:57:22.546075+00:00",
+            "changed_by": "SYSTEM",
+            "comments": "Task created"
+          }
+        ]
+      }
+    }
+  },
+  "document_submissions": {
+    "EMP-2002": [
+      {
+        "id": "DOCSUBM-2002-001",
+        "employee_code": "EMP-2002",
+        "doc_type_id": "DOC-TYPE-001",
+        "doc_type_name": "Appointment Letter Acknowledgement",
+        "filename": "appointment_letter_signed.pdf",
+        "file_size_kb": 145,
+        "is_sensitive": false,
+        "status": "SUBMITTED",
+        "submitted_at": "2026-10-14T17:57:22.546082+00:00",
+        "hr_reviewer_code": null,
+        "hr_reviewer_name": null,
+        "review_comments": null,
+        "reviewed_at": null,
+        "is_demo": true
+      }
+    ],
+    "EMP-2003": [
+      {
+        "id": "DOCSUBM-2003-001",
+        "employee_code": "EMP-2003",
+        "doc_type_id": "DOC-TYPE-002",
+        "doc_type_name": "Educational Qualification Certificates",
+        "filename": "degree_certificate.pdf",
+        "file_size_kb": 890,
+        "is_sensitive": false,
+        "status": "SUBMITTED",
+        "submitted_at": "2026-10-12",
+        "hr_reviewer_code": null,
+        "hr_reviewer_name": null,
+        "review_comments": null,
+        "reviewed_at": null,
+        "is_demo": true
+      },
+      {
+        "id": "DOCSUBM-2003-002",
+        "employee_code": "EMP-2003",
+        "doc_type_id": "DOC-TYPE-003",
+        "doc_type_name": "Previous Employment Experience Letter",
+        "filename": "experience_letter.pdf",
+        "file_size_kb": 310,
+        "is_sensitive": false,
+        "status": "CORRECTION_REQUIRED",
+        "submitted_at": "2026-10-12",
+        "hr_reviewer_code": "EMP-1005",
+        "hr_reviewer_name": "Ananya Desai",
+        "review_comments": "Please resubmit with the correct document \u2014 the uploaded file appears to be from the wrong employer. Please upload the letter from your most recent employer.",
+        "reviewed_at": "2026-10-14T17:57:22.546095+00:00",
+        "is_demo": true
+      },
+      {
+        "id": "DOCSUBM-2003-003",
+        "employee_code": "EMP-2003",
+        "doc_type_id": "DOC-TYPE-004",
+        "doc_type_name": "Policy Acknowledgement Form",
+        "filename": "policy_acknowledgement.pdf",
+        "file_size_kb": 220,
+        "is_sensitive": false,
+        "status": "VERIFIED",
+        "submitted_at": "2026-10-11",
+        "hr_reviewer_code": "EMP-1005",
+        "hr_reviewer_name": "Ananya Desai",
+        "review_comments": "Verified. Acknowledgement received and recorded.",
+        "reviewed_at": "2026-10-13",
+        "is_demo": true
+      }
+    ],
+    "EMP-2004": [
+      {
+        "id": "DOCSUBM-2004-001",
+        "employee_code": "EMP-2004",
+        "doc_type_id": "DOC-TYPE-001",
+        "doc_type_name": "Appointment Letter Acknowledgement",
+        "filename": "appointment_signed.pdf",
+        "file_size_kb": 189,
+        "is_sensitive": false,
+        "status": "VERIFIED",
+        "submitted_at": "2026-10-08",
+        "hr_reviewer_code": "EMP-1005",
+        "hr_reviewer_name": "Ananya Desai",
+        "review_comments": "Verified and recorded.",
+        "reviewed_at": "2026-10-09",
+        "is_demo": true
+      }
+    ],
+    "EMP-2005": [
+      {
+        "id": "DOCSUBM-2005-001",
+        "employee_code": "EMP-2005",
+        "doc_type_id": "DOC-TYPE-006",
+        "doc_type_name": "30-Day Manager Review Form",
+        "filename": "30day_review_sneha_joshi.pdf",
+        "file_size_kb": 450,
+        "is_sensitive": false,
+        "status": "VERIFIED",
+        "submitted_at": "2026-10-08",
+        "hr_reviewer_code": "EMP-1005",
+        "hr_reviewer_name": "Ananya Desai",
+        "review_comments": "30-day review recorded. Onboarding marked complete.",
+        "reviewed_at": "2026-10-09",
+        "is_demo": true
+      }
+    ],
+    "EMP-2001": [
+      {
+        "id": "DOCSUBM-EMP-2001-C0D0DCDF",
+        "employee_code": "EMP-2001",
+        "doc_type_id": "DOC-TYPE-001",
+        "doc_type_name": "Appointment Letter Acknowledgement",
+        "filename": "pan_card_kavya.pdf",
+        "file_size_kb": 520,
+        "is_sensitive": false,
+        "status": "SUBMITTED",
+        "submitted_at": "2026-10-14T18:04:14.305189+00:00",
+        "hr_reviewer_code": null,
+        "hr_reviewer_name": null,
+        "review_comments": null,
+        "reviewed_at": null,
+        "is_demo": true
+      },
+      {
+        "id": "DOCSUBM-EMP-2001-05077641",
+        "employee_code": "EMP-2001",
+        "doc_type_id": "DOC-TYPE-001",
+        "doc_type_name": "Appointment Letter Acknowledgement",
+        "filename": "pan_card_kavya.pdf",
+        "file_size_kb": 520,
+        "is_sensitive": false,
+        "status": "SUBMITTED",
+        "submitted_at": "2026-10-14T18:04:23.186350+00:00",
+        "hr_reviewer_code": null,
+        "hr_reviewer_name": null,
+        "review_comments": null,
+        "reviewed_at": null,
+        "is_demo": true
+      },
+      {
+        "id": "DOCSUBM-EMP-2001-7CE53909",
+        "employee_code": "EMP-2001",
+        "doc_type_id": "DOC-TYPE-001",
+        "doc_type_name": "Appointment Letter Acknowledgement",
+        "filename": "pan_card_kavya.pdf",
+        "file_size_kb": 520,
+        "is_sensitive": false,
+        "status": "SUBMITTED",
+        "submitted_at": "2026-10-14T18:04:30.529956+00:00",
+        "hr_reviewer_code": null,
+        "hr_reviewer_name": null,
+        "review_comments": null,
+        "reviewed_at": null,
+        "is_demo": true
+      },
+      {
+        "id": "DOCSUBM-EMP-2001-72D37F7D",
+        "employee_code": "EMP-2001",
+        "doc_type_id": "DOC-TYPE-001",
+        "doc_type_name": "Appointment Letter Acknowledgement",
+        "filename": "pan_card_kavya.pdf",
+        "file_size_kb": 520,
+        "is_sensitive": false,
+        "status": "SUBMITTED",
+        "submitted_at": "2026-10-14T18:04:48.186419+00:00",
+        "hr_reviewer_code": null,
+        "hr_reviewer_name": null,
+        "review_comments": null,
+        "reviewed_at": null,
+        "is_demo": true
+      }
+    ]
+  },
+  "notifications": {
+    "EMP-2001": [
+      {
+        "id": "NOTIF-2001-001",
+        "employee_code": "EMP-2001",
+        "type": "TASK_ASSIGNED",
+        "title": "Onboarding tasks assigned",
+        "message": "Your onboarding plan has been set up. You have tasks to complete before your joining date of 2026-10-17. Please review your onboarding checklist.",
+        "link_path": "/onboarding",
+        "created_at": "2026-10-14T17:57:22.546120+00:00",
+        "is_read": false,
+        "is_demo": true
+      }
+    ],
+    "EMP-2002": [
+      {
+        "id": "NOTIF-2002-001",
+        "employee_code": "EMP-2002",
+        "type": "TASK_DEADLINE",
+        "title": "Document submission due soon",
+        "message": "Your employment document submission is due before your joining date. Please complete this task to avoid delays.",
+        "link_path": "/onboarding",
+        "created_at": "2026-10-14T17:57:22.546126+00:00",
+        "is_read": false,
+        "is_demo": true
+      }
+    ],
+    "EMP-2003": [
+      {
+        "id": "NOTIF-2003-001",
+        "employee_code": "EMP-2003",
+        "type": "DOCUMENT_CORRECTION",
+        "title": "Document correction required",
+        "message": "HR has requested a correction for your Previous Employment Experience Letter. Please review the HR comments and resubmit the correct document.",
+        "link_path": "/onboarding",
+        "created_at": "2026-10-14T17:57:22.546130+00:00",
+        "is_read": false,
+        "is_demo": true
+      },
+      {
+        "id": "NOTIF-2003-002",
+        "employee_code": "EMP-2003",
+        "type": "DOCUMENT_VERIFIED",
+        "title": "Policy Acknowledgement verified",
+        "message": "Your Policy Acknowledgement Form has been verified by HR.",
+        "link_path": "/onboarding",
+        "created_at": "2026-10-13",
+        "is_read": true,
+        "is_demo": true
+      }
+    ],
+    "EMP-2004": [
+      {
+        "id": "NOTIF-2004-001",
+        "employee_code": "EMP-2004",
+        "type": "TASK_ACTION_REQUIRED",
+        "title": "IT access pending \u2014 action required",
+        "message": "Your Bloomberg terminal access request is pending IT provisioning. Please follow up with the IT team via ServiceHub if this is impacting your work.",
+        "link_path": "/onboarding",
+        "created_at": "2026-10-14T17:57:22.546138+00:00",
+        "is_read": false,
+        "is_demo": true
+      }
+    ],
+    "EMP-2005": [
+      {
+        "id": "NOTIF-2005-001",
+        "employee_code": "EMP-2005",
+        "type": "ONBOARDING_COMPLETED",
+        "title": "Onboarding complete!",
+        "message": "Congratulations! Your onboarding is complete. Welcome to the DSPAMC team!",
+        "link_path": "/",
+        "created_at": "2026-10-09",
+        "is_read": true,
+        "is_demo": true
+      }
+    ],
+    "EMP-1005": [
+      {
+        "id": "HRNOTIF-1005-001",
+        "employee_code": "EMP-1005",
+        "type": "HR_DOCUMENT_SUBMITTED",
+        "title": "New document submission \u2014 Kavya Reddy",
+        "message": "Arjun Pillai has submitted an Appointment Letter Acknowledgement for your review.",
+        "link_path": "/onboarding/hr",
+        "created_at": "2026-10-14T17:57:22.546147+00:00",
+        "is_read": false,
+        "is_demo": true
+      },
+      {
+        "id": "HRNOTIF-1005-002",
+        "employee_code": "EMP-1005",
+        "type": "HR_DOCUMENT_SUBMITTED",
+        "title": "Document awaiting review \u2014 Meera Kapoor",
+        "message": "Meera Kapoor has submitted onboarding documents for review. The experience letter requires correction.",
+        "link_path": "/onboarding/hr",
+        "created_at": "2026-10-14T17:57:22.546158+00:00",
+        "is_read": false,
+        "is_demo": true
+      }
+    ]
+  },
+  "audit_log": [
+    {
+      "id": "40dd9c9c-2dda-44c7-ad75-d3a8f19d5296",
+      "action": "TASK_STATUS_UPDATED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "task_id": "OINST-2001-0001",
+        "old_status": "OVERDUE",
+        "new_status": "IN_PROGRESS"
+      },
+      "timestamp": "2026-10-14T18:03:58.248795+00:00"
+    },
+    {
+      "id": "46bc03b2-e733-4aa0-91b3-fff923ff9fe4",
+      "action": "TASK_STATUS_UPDATED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "task_id": "OINST-2001-0001",
+        "old_status": "IN_PROGRESS",
+        "new_status": "IN_PROGRESS"
+      },
+      "timestamp": "2026-10-14T18:04:14.298848+00:00"
+    },
+    {
+      "id": "12f67d7c-4d96-4735-a1fc-1ac501742199",
+      "action": "DOCUMENT_SUBMITTED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "doc_type_id": "DOC-TYPE-001",
+        "filename": "pan_card_kavya.pdf"
+      },
+      "timestamp": "2026-10-14T18:04:14.305225+00:00"
+    },
+    {
+      "id": "1b5170a0-9bd1-48f1-90f5-950a2b01f41c",
+      "action": "DOCUMENT_SUBMITTED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "doc_type_id": "DOC-TYPE-001",
+        "filename": "pan_card_kavya.pdf"
+      },
+      "timestamp": "2026-10-14T18:04:23.186401+00:00"
+    },
+    {
+      "id": "e98d1992-25a8-453c-b1b6-5cd3db4cbad6",
+      "action": "TASK_STATUS_UPDATED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "task_id": "OINST-2001-0001",
+        "old_status": "IN_PROGRESS",
+        "new_status": "IN_PROGRESS"
+      },
+      "timestamp": "2026-10-14T18:04:30.524632+00:00"
+    },
+    {
+      "id": "c7941188-dd29-4519-839e-ac3e777bbd5f",
+      "action": "DOCUMENT_SUBMITTED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "doc_type_id": "DOC-TYPE-001",
+        "filename": "pan_card_kavya.pdf"
+      },
+      "timestamp": "2026-10-14T18:04:30.529986+00:00"
+    },
+    {
+      "id": "392839ea-b48a-4a43-9732-a17d6dd767f2",
+      "action": "TASK_STATUS_UPDATED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "task_id": "OINST-2001-0001",
+        "old_status": "IN_PROGRESS",
+        "new_status": "IN_PROGRESS"
+      },
+      "timestamp": "2026-10-14T18:04:48.181737+00:00"
+    },
+    {
+      "id": "138e7a5c-1bf0-41b8-bccc-5ad2eae01c9b",
+      "action": "DOCUMENT_SUBMITTED",
+      "employee_code": "EMP-2001",
+      "actor_code": "EMP-2001",
+      "details": {
+        "doc_type_id": "DOC-TYPE-001",
+        "filename": "pan_card_kavya.pdf"
+      },
+      "timestamp": "2026-10-14T18:04:48.186437+00:00"
+    }
+  ]
+}

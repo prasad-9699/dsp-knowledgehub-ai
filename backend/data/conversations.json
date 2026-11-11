@@ -1,0 +1,239 @@
+[
+  {
+    "id": "conv_1791870952662",
+    "title": "How do I apply for leave on the People...",
+    "created_at": "2026-10-13T06:04:42.233Z",
+    "updated_at": "2026-10-13T06:04:42.241469+00:00",
+    "pinned": false,
+    "messages": [
+      {
+        "id": "msg_u_1791870958982",
+        "role": "user",
+        "content": "How do I apply for leave on the PeoplePulse portal?",
+        "sources": [],
+        "citations": [],
+        "follow_up_suggestions": [],
+        "timestamp": "2026-10-13T05:55:58.982Z"
+      },
+      {
+        "id": "msg_a_1791870959050",
+        "role": "assistant",
+        "content": "To apply for leave at **DSP Asset Management Company**, follow the verified workflow below:\n\n1. **Log in to PeoplePulse**: Open the DSP PeoplePulse HRMS portal ([peoplepulse.dspamc.com](https://peoplepulse.dspamc.com)) with your corporate SSO.\n2. **Navigate**: Go to **My Workspace > Leave Management > Apply Leave**.\n3. **Select Leave Type & Dates**: Choose between **Earned Leave (EL)**, **Casual/Sick Leave (CL/SL)**, or Compensatory Off.\n4. **Handover Protocol**: Nominate a peer delegate for your operational portfolio responsibilities.\n5. **Notice Period**: For absences exceeding 3 consecutive business days, submit at least **7 working days in advance**.\n6. **Approval SLA**: Your reporting manager has a **48-hour SLA** to action your request. Unattended requests escalate to the Department Head after 72 hours.",
+        "sources": [
+          {
+            "tool": "RAG Retriever [DSP-HR-001]",
+            "document_title": "DSPAMC Employee Leave & Absence Policy 2026",
+            "section": "Section 4.2: How to Apply for Leave & Workflow",
+            "page": 12,
+            "data_status": "AUTHORIZED_INTERNAL",
+            "timestamp": "2026-10-13T05:55:59.045245+00:00"
+          }
+        ],
+        "citations": [
+          {
+            "document_id": "DSP-HR-001",
+            "document_title": "DSPAMC Employee Leave & Absence Policy 2026",
+            "section": "Section 4.2: How to Apply for Leave & Workflow",
+            "page": 12,
+            "snippet": "1. Access the DSP PeoplePulse HRMS portal (https://peoplepulse.dspamc.com/leave) using your Single Sign-On (SSO) credentials.\n2. Navigate to 'My Workspace' > 'Leave Management' > 'Apply Leave'.\n3. Select the leave category (Earned Leave, Casual Leave, Sick Leave, or Compensatory Off), enter the start/end dates, and state the handover delegate.\n4. For leaves exceeding 3 consecutive business days, submission must be completed at least 7 working days in advance.\n5. Your Reporting Manager has a 48-hour SLA to approve or reject the request. Automatic escalation to the Department Head occurs if unaddressed after 72 hours.",
+            "relevance": 0.98,
+            "category": "HR",
+            "verified": true,
+            "url": null
+          }
+        ],
+        "follow_up_suggestions": [
+          "How many earned leaves can I carry forward?",
+          "What is the maternity and paternity leave entitlement?",
+          "Can unutilized leave be encashed?"
+        ],
+        "timestamp": "2026-10-13T05:55:59.050Z"
+      },
+      {
+        "id": "msg_u_1791871454211",
+        "role": "user",
+        "content": "hi",
+        "sources": [],
+        "citations": [],
+        "follow_up_suggestions": [],
+        "timestamp": "2026-10-13T06:04:14.211Z"
+      },
+      {
+        "id": "msg_a_1791871454235",
+        "role": "assistant",
+        "content": "I could not locate authorized documentation or financial data matching your specific inquiry.\n\n**DSP KnowledgeHub AI** is designed to assist DSPAMC employees across authorized internal domains:\n\n\u2022 **Human Resources**: Leave application workflows, quotas, onboarding guide, mediclaim\n\u2022 **IT Services**: ServiceHub IAM requests, VPN / MFA configuration, Bloomberg access\n\u2022 **Finance**: SAP Concur expense claims, per diem rates, GST invoicing mandates\n\u2022 **Compliance**: SEBI personal securities pre-clearance, 30-day holding rules, restricted list\n\u2022 **Institutional Research**: Equity analysis, NIFTY 50 fundamentals, and model predictions.\n\nPlease select one of the suggested prompts below or rephrase your question.",
+        "sources": [],
+        "citations": [],
+        "follow_up_suggestions": [
+          "How do I apply for leave?",
+          "Where can I find the onboarding guide?",
+          "How do I request IT access?",
+          "What is the process for submitting an expense claim?",
+          "Where can I find the relevant compliance procedure?"
+        ],
+        "timestamp": "2026-10-13T06:04:14.235Z"
+      },
+      {
+        "id": "msg_u_1791871468485",
+        "role": "user",
+        "content": "How do I request IT access?",
+        "sources": [],
+        "citations": [],
+        "follow_up_suggestions": [],
+        "timestamp": "2026-10-13T06:04:28.485Z"
+      },
+      {
+        "id": "msg_a_1791871468504",
+        "role": "assistant",
+        "content": "To request IT, application, or network access at DSPAMC:\n\n1. **Access ServiceHub**: Open [https://servicehub.dspamc.com/access-request](https://servicehub.dspamc.com) via your browser.\n2. **Catalog Selection**: Click **Service Catalog > Identity & Access Management > Application Access Request**.\n3. **Choose Target System**: Select Bloomberg Terminal, Refinitiv Eikon, PostgreSQL Analytical DB, Qdrant Vector Store, or internal Git.\n4. **Business Justification**: Specify your project or mandate with required permissions (e.g. Read-Only vs Admin).\n5. **Approval Flow**: Your direct Reporting Manager approves first, followed by InfoSec validation. Provisioning completes within **24 hours**.\n6. **Remote Access / VPN**: Remote workers require Cisco AnyConnect/GlobalProtect with Microsoft Authenticator 2FA.",
+        "sources": [
+          {
+            "tool": "RAG Retriever [DSP-IT-001]",
+            "document_title": "DSPAMC Information Security & IAM SOP 2026",
+            "section": "Section 3.1: Role-Based IT Access Requests (RBAC)",
+            "page": 8,
+            "data_status": "AUTHORIZED_INTERNAL",
+            "timestamp": "2026-10-13T06:04:28.501493+00:00"
+          },
+          {
+            "tool": "RAG Retriever [DSP-IT-001]",
+            "document_title": "DSPAMC Information Security & IAM SOP 2026",
+            "section": "Section 4.3: Remote VPN & Multi-Factor Authentication (MFA)",
+            "page": 14,
+            "data_status": "AUTHORIZED_INTERNAL",
+            "timestamp": "2026-10-13T06:04:28.501508+00:00"
+          }
+        ],
+        "citations": [
+          {
+            "document_id": "DSP-IT-001",
+            "document_title": "DSPAMC Information Security & IAM SOP 2026",
+            "section": "Section 3.1: Role-Based IT Access Requests (RBAC)",
+            "page": 8,
+            "snippet": "To request access to internal applications, databases, or specialized market software:\n1. Log into the DSP ServiceHub Portal (https://servicehub.dspamc.com/access-request).\n2. Select 'Service Catalog' > 'Identity & Access Management' > 'Application Access Request'.\n3. Choose the target system: Bloomberg Terminal, Refinitiv Eikon, Qdrant Vector Store, PostgreSQL Analytical DB, or Internal Git Repositories.\n4. Specify your business rationale and required privilege level (Read-Only vs Read-Write).\n5. Workflow: Direct Line Manager approves -> InfoSec compliance validation -> System auto-provisions within 24 hours.",
+            "relevance": 0.99,
+            "category": "IT",
+            "verified": true,
+            "url": null
+          },
+          {
+            "document_id": "DSP-IT-001",
+            "document_title": "DSPAMC Information Security & IAM SOP 2026",
+            "section": "Section 4.3: Remote VPN & Multi-Factor Authentication (MFA)",
+            "page": 14,
+            "snippet": "Remote connectivity into DSPAMC internal networks requires Cisco AnyConnect / GlobalProtect VPN paired with Microsoft Authenticator push notification. Hardware security keys (YubiKey) are mandated for all Dealers and Portfolio Managers handling live trade execution. Passwords must meet enterprise complexity standards (minimum 14 characters, alpha-numeric with symbols) and expire every 90 days.",
+            "relevance": 0.91,
+            "category": "IT",
+            "verified": true,
+            "url": null
+          }
+        ],
+        "follow_up_suggestions": [
+          "How do I set up Microsoft Authenticator on a new phone?",
+          "What is the password complexity and expiry policy?",
+          "How do I request hardware peripherals or a monitor?"
+        ],
+        "timestamp": "2026-10-13T06:04:28.504Z"
+      },
+      {
+        "id": "msg_u_1791871482193",
+        "role": "user",
+        "content": "How do I set up Microsoft Authenticator on a new phone?",
+        "sources": [],
+        "citations": [],
+        "follow_up_suggestions": [],
+        "timestamp": "2026-10-13T06:04:42.193Z"
+      },
+      {
+        "id": "msg_a_1791871482233",
+        "role": "assistant",
+        "content": "Based on **DSPAMC New Hire Onboarding Guide v3.4** (v3.4 (2026)), issued by the People Operations:\n\n**Section 3.2: Mandatory NISM & SEBI Certifications (Page 9)**\nAll investment, advisory, wealth relationship, and client service personnel must obtain or validate the following certifications within 60 calendar days of joining:\n\u2022 Wealth Advisors & Sales: NISM-Series-V-A: Mutual Fund Distributors Certification.\n\u2022 Equity Analysts & Associates: NISM-Series-XV: Research Analyst Certification.\nExam registration fees are 100% reimbursed through the DSP L&D Portal upon certificate upload.\n",
+        "sources": [
+          {
+            "tool": "RAG Retriever [DSP-HR-002]",
+            "document_title": "DSPAMC New Hire Onboarding Guide v3.4",
+            "section": "Section 3.2: Mandatory NISM & SEBI Certifications",
+            "page": 9,
+            "data_status": "AUTHORIZED_INTERNAL",
+            "timestamp": "2026-10-13T06:04:42.230152+00:00"
+          }
+        ],
+        "citations": [
+          {
+            "document_id": "DSP-HR-002",
+            "document_title": "DSPAMC New Hire Onboarding Guide v3.4",
+            "section": "Section 3.2: Mandatory NISM & SEBI Certifications",
+            "page": 9,
+            "snippet": "All investment, advisory, wealth relationship, and client service personnel must obtain or validate the following certifications within 60 calendar days of joining:\n\u2022 Wealth Advisors & Sales: NISM-Series-V-A: Mutual Fund Distributors Certification.\n\u2022 Equity Analysts & Associates:...",
+            "relevance": 0.67,
+            "category": "HR",
+            "verified": true,
+            "url": null
+          }
+        ],
+        "follow_up_suggestions": [
+          "Show full text of DSP-HR-002",
+          "Where do I file the request for this?",
+          "Who is the departmental contact person?"
+        ],
+        "timestamp": "2026-10-13T06:04:42.233Z"
+      }
+    ]
+  },
+  {
+    "id": "conv_dsp_welcome",
+    "title": "leave",
+    "created_at": "2026-11-11T06:10:58.895Z",
+    "updated_at": "2026-11-11T06:10:58.904919+00:00",
+    "pinned": false,
+    "messages": [
+      {
+        "id": "msg_u_1794377458869",
+        "role": "user",
+        "content": "leave",
+        "sources": [],
+        "citations": [],
+        "follow_up_suggestions": [],
+        "timestamp": "2026-11-11T06:10:58.869Z"
+      },
+      {
+        "id": "msg_a_1794377458895",
+        "role": "assistant",
+        "content": "### DSPAMC Leave Entitlements Summary (FY2026-27)\n\n\u2022 **Earned Leave (EL)**: 18 days credited quarterly (4.5 days per quarter). Carry-forward is capped at a maximum of **45 days**.\n\u2022 **Casual / Sick Leave (CL/SL)**: 12 days credited annually on April 1st.\n\u2022 **Maternity Leave**: 26 weeks paid leave per the Maternity Benefit Act.\n\u2022 **Paternity Leave**: 10 working days paid leave (taken within 6 months of childbirth).\n\u2022 **Bereavement Leave**: 5 working days paid leave.",
+        "sources": [],
+        "citations": [
+          {
+            "document_id": "DSP-HR-001",
+            "document_title": "DSPAMC Employee Leave & Absence Policy 2026",
+            "section": "Section 4.1: Leave Entitlements & Annual Quota",
+            "snippet": "Employees are credited with 18 days of Earned Annual Leave (EL) per financial year, accrued on a quarterly basis (4.5 days per quarter). In addition, all full-time employees receive 12 days of Casual/Sick Leave (CL/SL) annually credited on April 1st. Unutilized EL may be carried forward up to a maximum cap of 45 days. Any EL accumulated beyond 45 days is subject to mandatory encashment or forfeiture as per AMFI/DSPAMC governance standards.",
+            "relevance": 0.96,
+            "category": "HR",
+            "verified": true,
+            "effective_date": "2025-01-01",
+            "version": "2.0",
+            "excerpt": "Employees are credited with 18 days of Earned Annual Leave (EL) per financial year, accrued on a quarterly basis (4.5 days per quarter). In addition, all full-time employees receive 12 days of Casual/Sick Leave (CL/SL) annually credited on April 1st. Unutilized EL may be carried forward up to a maximum cap of 45 days. Any EL accumulated beyond 45 days is subject to mandatory encashment or forfeiture as per AMFI/DSPAMC governance standards.",
+            "relevance_score": 0.96,
+            "url": ""
+          },
+          {
+            "document_id": "DSP-HR-001",
+            "document_title": "DSPAMC Employee Leave & Absence Policy 2026",
+            "section": "Section 6.1: Parental & Special Leaves",
+            "snippet": "Female employees are entitled to 26 weeks of paid Maternity Leave in accordance with the Maternity Benefit Act. Male employees receive 10 working days of paid Paternity Leave, which may be taken continuously or in two tranches within 6 months following childbirth. DSPAMC also provides 5 working days of paid Bereavement Leave and 12 weeks of Adoption Leave.",
+            "relevance": 0.94,
+            "category": "HR",
+            "verified": true,
+            "effective_date": "2025-01-01",
+            "version": "2.0",
+            "excerpt": "Female employees are entitled to 26 weeks of paid Maternity Leave in accordance with the Maternity Benefit Act. Male employees receive 10 working days of paid Paternity Leave, which may be taken continuously or in two tranches within 6 months following childbirth. DSPAMC also provides 5 working days of paid Bereavement Leave and 12 weeks of Adoption Leave.",
+            "relevance_score": 0.94,
+            "url": ""
+          }
+        ],
+        "follow_up_suggestions": [],
+        "timestamp": "2026-11-11T06:10:58.895Z"
+      }
+    ]
+  }
+]

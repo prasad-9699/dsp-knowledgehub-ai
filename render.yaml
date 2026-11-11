@@ -1,0 +1,49 @@
+# ==============================================================================
+# Render Blueprint Specification for DSP KnowledgeHub AI
+# Docs: https://render.com/docs/blueprint-spec
+# ==============================================================================
+
+services:
+  # ─── 1. FastAPI Backend Web Service ─────────────────────────────────────────
+  - type: web
+    name: dsp-knowledgehub-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install --no-cache-dir -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: APP_NAME
+        value: DSP KnowledgeHub AI
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dsp-knowledgehub-db
+          property: connectionString
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: APP_SECRET_KEY
+        generateValue: true
+      - key: DEMO_MODE
+        value: true
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LOG_FORMAT
+        value: json
+      - key: RATE_LIMIT_PER_MINUTE
+        value: 120
+      - key: RATE_LIMIT_PER_HOUR
+        value: 3000
+
+# ─── 2. Managed PostgreSQL Database ──────────────────────────────────────────
+databases:
+  - name: dsp-knowledgehub-db
+    databaseName: dsp_knowledgehub
+    user: dsp_admin
+    plan: free # Can upgrade to starter ($7/mo) for zero-expiration persistent storage
