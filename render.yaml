@@ -47,3 +47,4 @@ databases:
     databaseName: dsp_knowledgehub
     user: dsp_admin
     plan: free # Can upgrade to starter ($7/mo) for zero-expiration persistent storage
+
