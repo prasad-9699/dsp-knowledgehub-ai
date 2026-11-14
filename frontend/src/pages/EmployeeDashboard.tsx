@@ -36,6 +36,177 @@ function getInitialDashboard(user: any): EmployeeDashboardData {
   const dept = user?.department || 'Equities & Wealth Management';
   const desig = user?.designation || 'Investment Professional';
 
+  // Read local stored claims if present
+  let expenseSummary = {
+    employee_code: code,
+    total_claims: 0,
+    pending_approval_count: 0,
+    pending_approval_amount: 0,
+    approved_count: 0,
+    approved_amount: 0,
+    paid_count: 0,
+    paid_amount: 0,
+    currency: 'INR',
+  };
+
+  try {
+    const rawClaims = localStorage.getItem(`dsp_claims_${code}`);
+    if (rawClaims) {
+      const parsedClaims = JSON.parse(rawClaims);
+      if (Array.isArray(parsedClaims) && parsedClaims.length > 0) {
+        const pending = parsedClaims.filter((c) =>
+          ['UNDER_REVIEW', 'SUBMITTED', 'PENDING', 'INFO_REQUIRED'].includes(c.status)
+        );
+        const approved = parsedClaims.filter((c) =>
+          ['APPROVED', 'PAYMENT_PROCESSING'].includes(c.status)
+        );
+        const paid = parsedClaims.filter((c) => c.status === 'PAID');
+        expenseSummary = {
+          employee_code: code,
+          total_claims: parsedClaims.length,
+          pending_approval_count: pending.length,
+          pending_approval_amount: pending.reduce((acc, c) => acc + (Number(c.amount) || 0), 0),
+          approved_count: approved.length,
+          approved_amount: approved.reduce((acc, c) => acc + (Number(c.amount) || 0), 0),
+          paid_count: paid.length,
+          paid_amount: paid.reduce((acc, c) => acc + (Number(c.amount) || 0), 0),
+          currency: 'INR',
+        };
+      }
+    } else if (code === 'EMP-1001') {
+      // Aditi Sharma default seed
+      expenseSummary = {
+        employee_code: code,
+        total_claims: 3,
+        pending_approval_count: 1,
+        pending_approval_amount: 3200,
+        approved_count: 2,
+        approved_amount: 48500,
+        paid_count: 2,
+        paid_amount: 48500,
+        currency: 'INR',
+      };
+    }
+  } catch {
+    // ignore
+  }
+
+  // Read local stored leave balances if present
+  let leaveSummary = {
+    employee_code: code,
+    year: 2026,
+    total_available: 41,
+    upcoming_approved_days: 0,
+    categories: [
+      {
+        category_id: 'pl',
+        category_name: 'Privilege Leave',
+        code: 'PL',
+        allocated: 24,
+        used: 0,
+        pending: 0,
+        available: 24,
+        description: 'Annual vacation quota.',
+      },
+      {
+        category_id: 'csl',
+        category_name: 'Casual & Sick Leave',
+        code: 'CSL',
+        allocated: 12,
+        used: 0,
+        pending: 0,
+        available: 12,
+        description: 'Short-term medical/emergency.',
+      },
+      {
+        category_id: 'comp_off',
+        category_name: 'Compensatory Off',
+        code: 'COMP_OFF',
+        allocated: 5,
+        used: 0,
+        pending: 0,
+        available: 5,
+        description: 'Weekend duty compensatory credit.',
+      },
+    ],
+  };
+
+  try {
+    const rawBalances = localStorage.getItem(`dsp_leave_balances_${code}`);
+    if (rawBalances) {
+      const parsedBalances = JSON.parse(rawBalances);
+      if (parsedBalances && Array.isArray(parsedBalances.categories)) {
+        leaveSummary = parsedBalances;
+      }
+    } else if (code === 'EMP-1001') {
+      leaveSummary.categories[0].used = 2;
+      leaveSummary.categories[0].available = 22;
+      leaveSummary.categories[1].used = 1;
+      leaveSummary.categories[1].available = 11;
+      leaveSummary.total_available = 38;
+    }
+  } catch {
+    // ignore
+  }
+
+  // Read local stored requests if present
+  let openRequestsCount = 0;
+  try {
+    const rawReqs = localStorage.getItem(`dsp_requests_${code}`);
+    if (rawReqs) {
+      const parsed = JSON.parse(rawReqs);
+      if (Array.isArray(parsed)) {
+        openRequestsCount = parsed.filter((r) => r.status !== 'RESOLVED').length;
+      }
+    } else if (code === 'EMP-1001') {
+      openRequestsCount = 1;
+    }
+  } catch {
+    // ignore
+  }
+
+  const activities = code === 'EMP-1001'
+    ? [
+        {
+          id: 'act-1',
+          type: 'LEAVE',
+          title: 'Privilege Leave Approved',
+          subtitle: 'Annual Vacation • 2 days',
+          status: 'APPROVED',
+          timestamp: '2026-11-10T09:30:00Z',
+          link: '/leave',
+        },
+        {
+          id: 'act-2',
+          type: 'EXPENSE',
+          title: 'Client Lunch Reimbursement',
+          subtitle: 'Equities Research Meeting • ₹3,200',
+          status: 'PENDING',
+          timestamp: '2026-11-08T14:15:00Z',
+          link: '/reimbursements',
+        },
+        {
+          id: 'act-3',
+          type: 'SERVICE_DESK',
+          title: 'Bloomberg Terminal Key Refresh',
+          subtitle: 'IT Infrastructure Ticket #8841',
+          status: 'RESOLVED',
+          timestamp: '2026-11-05T11:00:00Z',
+          link: '/requests',
+        },
+      ]
+    : [
+        {
+          id: 'act-new-1',
+          type: 'HR_PORTAL',
+          title: 'Portal Access Ready',
+          subtitle: 'Self-Service Profile Initialized',
+          status: 'ACTIVE',
+          timestamp: new Date().toISOString(),
+          link: '/profile',
+        },
+      ];
+
   return {
     employee: {
       id: user?.id || 'emp-demo',
@@ -53,86 +224,11 @@ function getInitialDashboard(user: any): EmployeeDashboardData {
       is_active: true,
       is_demo: true,
     },
-    leave_summary: {
-      employee_code: code,
-      year: 2026,
-      total_available: 41,
-      upcoming_approved_days: 0,
-      categories: [
-        {
-          category_id: 'pl',
-          category_name: 'Privilege Leave',
-          code: 'PL',
-          allocated: 24,
-          used: 2,
-          pending: 0,
-          available: 22,
-          description: 'Annual vacation quota.',
-        },
-        {
-          category_id: 'csl',
-          category_name: 'Casual & Sick Leave',
-          code: 'CSL',
-          allocated: 12,
-          used: 1,
-          pending: 0,
-          available: 11,
-          description: 'Short-term medical/emergency.',
-        },
-        {
-          category_id: 'comp_off',
-          category_name: 'Compensatory Off',
-          code: 'COMP_OFF',
-          allocated: 5,
-          used: 0,
-          pending: 0,
-          available: 5,
-          description: 'Weekend duty compensatory credit.',
-        },
-      ],
-    },
-    expense_summary: {
-      employee_code: code,
-      total_claims: 3,
-      pending_approval_count: 1,
-      pending_approval_amount: 3200,
-      approved_count: 2,
-      approved_amount: 48500,
-      paid_count: 2,
-      paid_amount: 48500,
-      currency: 'INR',
-    },
-    open_requests_count: 1,
+    leave_summary: leaveSummary,
+    expense_summary: expenseSummary,
+    open_requests_count: openRequestsCount,
     pending_approvals_count: role === 'MANAGER' || role === 'ADMIN' ? 3 : 0,
-    recent_activities: [
-      {
-        id: 'act-1',
-        type: 'LEAVE',
-        title: 'Privilege Leave Approved',
-        subtitle: 'Annual Vacation • 2 days',
-        status: 'APPROVED',
-        timestamp: '2026-11-10T09:30:00Z',
-        link: '/leave',
-      },
-      {
-        id: 'act-2',
-        type: 'EXPENSE',
-        title: 'Client Lunch Reimbursement',
-        subtitle: 'Equities Research Meeting • ₹3,200',
-        status: 'PENDING',
-        timestamp: '2026-11-08T14:15:00Z',
-        link: '/reimbursements',
-      },
-      {
-        id: 'act-3',
-        type: 'SERVICE_DESK',
-        title: 'Bloomberg Terminal Key Refresh',
-        subtitle: 'IT Infrastructure Ticket #8841',
-        status: 'RESOLVED',
-        timestamp: '2026-11-05T11:00:00Z',
-        link: '/requests',
-      },
-    ],
+    recent_activities: activities,
     upcoming_holidays: [
       {
         date: '2026-11-26',
@@ -168,14 +264,45 @@ export default function EmployeeDashboard() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    setData(getInitialDashboard(user));
     fetchDashboard();
-  }, []);
+  }, [user]);
 
   const fetchDashboard = async () => {
     try {
-      const res = await selfServiceAPI.getDashboard();
-      if (res.data?.success && res.data.data) {
-        setData(res.data.data);
+      const res = await selfServiceAPI.getDashboard().catch(() => null);
+      if (res?.data?.success && res.data.data) {
+        const serverData = res.data.data;
+        const code = user?.employee_code || 'EMP-1001';
+        const rawClaims = localStorage.getItem(`dsp_claims_${code}`);
+        if (rawClaims) {
+          try {
+            const parsed = JSON.parse(rawClaims);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              const pending = parsed.filter((c: any) =>
+                ['UNDER_REVIEW', 'SUBMITTED', 'PENDING', 'INFO_REQUIRED'].includes(c.status)
+              );
+              const approved = parsed.filter((c: any) =>
+                ['APPROVED', 'PAYMENT_PROCESSING'].includes(c.status)
+              );
+              const paid = parsed.filter((c: any) => c.status === 'PAID');
+              serverData.expense_summary = {
+                employee_code: code,
+                total_claims: parsed.length,
+                pending_approval_count: pending.length,
+                pending_approval_amount: pending.reduce((acc: number, c: any) => acc + (Number(c.amount) || 0), 0),
+                approved_count: approved.length,
+                approved_amount: approved.reduce((acc: number, c: any) => acc + (Number(c.amount) || 0), 0),
+                paid_count: paid.length,
+                paid_amount: paid.reduce((acc: number, c: any) => acc + (Number(c.amount) || 0), 0),
+                currency: 'INR',
+              };
+            }
+          } catch {
+            // ignore
+          }
+        }
+        setData(serverData);
       }
     } catch (err: any) {
       // Keep rich instant dashboard data

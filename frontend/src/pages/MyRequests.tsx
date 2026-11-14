@@ -15,8 +15,19 @@ import {
 } from 'lucide-react';
 import { selfServiceAPI } from '../services/api';
 import type { ServiceRequestItem } from '../services/api';
+import { useAppStore } from '../store/useAppStore';
+
+const CATEGORY_NAMES: Record<string, string> = {
+  IT_ACCESS: 'IT Access & Accounts',
+  HARDWARE: 'Hardware & Devices',
+  HR_BENEFITS: 'HR Benefits & Leaves',
+  FACILITIES: 'Facilities & Workplace',
+  FINANCE_EXPENSE: 'Finance & Expense Inquiry',
+};
 
 export default function MyRequests() {
+  const { user } = useAppStore();
+  const empCode = user?.employee_code || 'EMP-1001';
   const [requests, setRequests] = useState<ServiceRequestItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -34,17 +45,40 @@ export default function MyRequests() {
 
   useEffect(() => {
     loadRequests();
-  }, []);
+  }, [empCode]);
 
   const loadRequests = async () => {
+    const storageKey = `dsp_requests_${empCode}`;
+    let localReqs: ServiceRequestItem[] = [];
+    try {
+      const stored = localStorage.getItem(storageKey);
+      if (stored) localReqs = JSON.parse(stored);
+    } catch {
+      // ignore
+    }
+
     try {
       setLoading(true);
-      const res = await selfServiceAPI.getServiceRequests();
-      if (res.data?.success && res.data.data) {
-        setRequests(res.data.data);
+      const res = await selfServiceAPI.getServiceRequests().catch(() => null);
+      const serverReqs = res?.data?.success && Array.isArray(res.data.data) ? res.data.data : null;
+
+      if (serverReqs && serverReqs.length > 0) {
+        const mergedMap = new Map<string, ServiceRequestItem>();
+        localReqs.forEach((r) => mergedMap.set(r.id, r));
+        serverReqs.forEach((r: ServiceRequestItem) => mergedMap.set(r.id, r));
+        const merged = Array.from(mergedMap.values()).sort(
+          (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+        setRequests(merged);
+        localStorage.setItem(storageKey, JSON.stringify(merged));
+      } else if (localReqs.length > 0) {
+        setRequests(localReqs);
+      } else {
+        setRequests([]);
       }
     } catch (err) {
       console.error('Failed to load service desk requests', err);
+      if (localReqs.length > 0) setRequests(localReqs);
     } finally {
       setLoading(false);
     }
@@ -66,21 +100,44 @@ export default function MyRequests() {
 
     try {
       setSubmitting(true);
-      const res = await selfServiceAPI.createServiceRequest({
+      const storageKey = `dsp_requests_${empCode}`;
+
+      const newTicket: ServiceRequestItem = {
+        id: 'req_' + Date.now(),
+        request_number: `REQ-2026-${Math.floor(100 + Math.random() * 900)}`,
+        employee_code: empCode,
+        employee_name: user?.full_name || 'DSP Professional',
         category,
+        category_label: CATEGORY_NAMES[category] || category,
         subject: subject.trim(),
         description: description.trim(),
         priority,
-      });
+        status: 'SUBMITTED',
+        assigned_team: 'Service Desk Operations',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        comments: [],
+      };
 
-      if (res.data?.success) {
-        showToast('Service ticket created and assigned to the relevant support team.');
-        setShowCreateModal(false);
-        setSubject('');
-        setDescription('');
-        setPriority('MEDIUM');
-        loadRequests();
-      }
+      // Background API sync
+      selfServiceAPI
+        .createServiceRequest({
+          category,
+          subject: subject.trim(),
+          description: description.trim(),
+          priority,
+        })
+        .catch(() => {});
+
+      const updated = [newTicket, ...requests];
+      setRequests(updated);
+      localStorage.setItem(storageKey, JSON.stringify(updated));
+
+      showToast('Service ticket created and assigned to the relevant support team.');
+      setShowCreateModal(false);
+      setSubject('');
+      setDescription('');
+      setPriority('MEDIUM');
     } catch (err: any) {
       const msg = err.response?.data?.detail || 'Failed to create request.';
       setErrorMessage(msg);

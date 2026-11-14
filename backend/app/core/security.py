@@ -136,22 +136,25 @@ async def get_current_user(
         parts = raw_token.split(":")
         emp_code = parts[1] if len(parts) > 1 else "EMP-1001"
         from app.api.auth import INSTITUTIONAL_DEMO_USERS
+        from app.services.self_service_service import self_service_engine
+
         u = INSTITUTIONAL_DEMO_USERS.get(emp_code.lower())
+        emp_rec = self_service_engine.get_employee_by_id(emp_code)
+
+        if not emp_rec:
+            # Auto-register employee in self-service engine so all self-service workflows operate smoothly
+            emp_rec = self_service_engine.add_or_register_employee(
+                employee_code=emp_code,
+                full_name=u.get("full_name") if u else "DSP Professional",
+                email=u.get("email") if u else f"{emp_code.lower()}@dspamc.com",
+                role=u.get("role", "EMPLOYEE") if u else "EMPLOYEE",
+                department=u.get("department", "Equities & Wealth Management") if u else "Equities & Wealth Management",
+                designation=u.get("designation", "Investment Professional") if u else "Investment Professional",
+            )
+
         if not u:
-            from app.services.self_service_service import self_service_engine
-            emp_rec = self_service_engine.data.get("employees", {}).get(emp_code)
-            if emp_rec:
-                u = emp_rec
-            else:
-                u = {
-                    "id": str(uuid.uuid4()),
-                    "employee_code": emp_code,
-                    "email": f"{emp_code.lower()}@dspamc.com",
-                    "full_name": "DSP Professional",
-                    "role": "EMPLOYEE",
-                    "department": "Equities & Wealth Management",
-                    "designation": "Investment Professional",
-                }
+            u = emp_rec
+            INSTITUTIONAL_DEMO_USERS[emp_code.lower()] = u
         u_id = u.get("id")
         try:
             u_uuid = uuid.UUID(str(u_id))

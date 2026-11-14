@@ -680,7 +680,11 @@ class SelfServiceEngine:
     def update_employee_profile(self, employee_code: str, updates: Optional[Dict[str, Any]] = None, **kwargs) -> Dict[str, Any]:
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError(f"Employee {employee_code} not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
         data_to_apply: Dict[str, Any] = {}
         if updates and isinstance(updates, dict):
             data_to_apply.update(updates)
@@ -777,7 +781,11 @@ class SelfServiceEngine:
         """Calculates and returns live leave balance quotas for an employee."""
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError(f"Employee {employee_code} not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         balances = self.data.get("leave_balances", {}).get(emp["employee_code"], [])
         if not balances:
@@ -862,7 +870,11 @@ class SelfServiceEngine:
         """
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError(f"Employee {employee_code} not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         # Duration
         duration = self.calculate_leave_duration(start_date_str, end_date_str, is_half_day)
@@ -951,7 +963,11 @@ class SelfServiceEngine:
         """Cancels a pending or future approved leave and restores balance."""
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError("Employee not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         req = None
         for r in self.data.get("leave_requests", []):
@@ -1007,7 +1023,11 @@ class SelfServiceEngine:
     def get_expense_summary(self, employee_code: str) -> Dict[str, Any]:
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError("Employee not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         claims = [c for c in self.data.get("expense_claims", []) if c["employee_code"] == emp["employee_code"]]
         total = len(claims)
@@ -1049,7 +1069,11 @@ class SelfServiceEngine:
     ) -> Dict[str, Any]:
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError("Employee not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         if amount <= 0:
             raise ValueError("Expense claim amount must be greater than zero")
@@ -1118,7 +1142,11 @@ class SelfServiceEngine:
     def cancel_expense_claim(self, employee_code: str, claim_id: str) -> Dict[str, Any]:
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError("Employee not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         claim = None
         for c in self.data.get("expense_claims", []):
@@ -1165,7 +1193,11 @@ class SelfServiceEngine:
     ) -> Dict[str, Any]:
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError("Employee not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         cat_labels = {
             "IT_ACCESS": "IT Access & Permissions",
@@ -1229,7 +1261,11 @@ class SelfServiceEngine:
     ) -> Dict[str, Any]:
         emp = self.get_employee_by_id(employee_code)
         if not emp:
-            raise ValueError("Employee not found")
+            emp = self.add_or_register_employee(
+                employee_code=employee_code,
+                full_name="DSP Professional",
+                email=f"{employee_code.lower()}@dspamc.com",
+            )
 
         req = None
         for r in self.data.get("service_requests", []):

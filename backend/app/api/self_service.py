@@ -72,7 +72,14 @@ async def get_profile(current_user: User = Depends(get_current_user)):
     emp_code = _resolve_employee_code(current_user)
     emp = self_service_engine.get_employee_by_id(emp_code)
     if not emp:
-        raise HTTPException(status_code=404, detail="Employee record not found")
+        emp = self_service_engine.add_or_register_employee(
+            employee_code=emp_code,
+            full_name=getattr(current_user, "full_name", "DSP Professional"),
+            email=getattr(current_user, "email", f"{emp_code.lower()}@dspamc.com"),
+            role=getattr(current_user, "role", "EMPLOYEE"),
+            department=getattr(current_user, "department", "Equities & Wealth Management"),
+            designation=getattr(current_user, "designation", "Investment Professional"),
+        )
 
     return APIResponse(
         success=True,
@@ -119,7 +126,14 @@ async def get_dashboard(current_user: User = Depends(get_current_user)):
     emp_code = _resolve_employee_code(current_user)
     emp = self_service_engine.get_employee_by_id(emp_code)
     if not emp:
-        raise HTTPException(status_code=404, detail="Employee record not found")
+        emp = self_service_engine.add_or_register_employee(
+            employee_code=emp_code,
+            full_name=getattr(current_user, "full_name", "DSP Professional"),
+            email=getattr(current_user, "email", f"{emp_code.lower()}@dspamc.com"),
+            role=getattr(current_user, "role", "EMPLOYEE"),
+            department=getattr(current_user, "department", "Equities & Wealth Management"),
+            designation=getattr(current_user, "designation", "Investment Professional"),
+        )
 
     leave_summary = self_service_engine.get_leave_balances(emp_code)
     expense_summary = self_service_engine.get_expense_summary(emp_code)
