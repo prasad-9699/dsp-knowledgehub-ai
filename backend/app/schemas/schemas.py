@@ -67,7 +67,10 @@ class RegisterRequest(BaseModel):
     email: str
     password: str
     full_name: str
-    role: str = "INVESTOR"
+    role: str = "EMPLOYEE"
+    employee_code: Optional[str] = None
+    department: Optional[str] = "Equities & Wealth Management"
+    designation: Optional[str] = "Employee"
 
 
 class TokenResponse(BaseModel):

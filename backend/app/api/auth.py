@@ -3,6 +3,7 @@ Authentication API endpoints.
 """
 
 from datetime import datetime, timezone
+import uuid
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy import select
@@ -33,48 +34,140 @@ settings = get_settings()
 
 
 @router.post("/register", response_model=APIResponse)
-async def register(request: RegisterRequest, db: AsyncSession = Depends(get_db)):
-    """Register a new user."""
-    # Check existing user
-    result = await db.execute(select(User).where(User.email == request.email))
-    if result.scalar_one_or_none():
+async def register(
+    request: RegisterRequest,
+    response: Response,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Register a new employee/user in DSP KnowledgeHub AI.
+    Works seamlessly in both managed PostgreSQL production and safe in-memory demo mode.
+    """
+    from app.services.self_service_service import self_service_engine
+
+    email_clean = request.email.strip().lower()
+    full_name_clean = request.full_name.strip()
+    role_clean = request.role.strip().upper() if request.role else "EMPLOYEE"
+
+    valid_roles = ["EMPLOYEE", "MANAGER", "ADMIN", "COMPLIANCE", "INVESTOR", "ANALYST", "PORTFOLIO_MANAGER", "RESEARCHER"]
+    if role_clean not in valid_roles:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Email already registered",
+            detail="Invalid role. Must be one of: EMPLOYEE, MANAGER, ADMIN, COMPLIANCE",
         )
 
-    # Validate role
-    valid_roles = ["INVESTOR", "ANALYST", "PORTFOLIO_MANAGER", "RESEARCHER", "ADMIN"]
-    if request.role not in valid_roles:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid role. Must be one of: {valid_roles}",
-        )
+    # Determine or generate employee code
+    if request.employee_code and request.employee_code.strip():
+        emp_code = request.employee_code.strip().upper()
+    else:
+        # Auto-generate next sequential employee code
+        existing_numbers = []
+        for key in INSTITUTIONAL_DEMO_USERS.keys():
+            if key.startswith("emp-"):
+                try:
+                    num_part = int(key.split("-")[1])
+                    if num_part < 2000:
+                        existing_numbers.append(num_part)
+                except Exception:
+                    pass
+        next_num = max(existing_numbers, default=1005) + 1
+        emp_code = f"EMP-{next_num}"
 
-    user = User(
-        email=request.email,
-        hashed_password=hash_password(request.password),
-        full_name=request.full_name,
-        role=request.role,
-        is_active=True,
-        is_verified=False,
+    user_id = str(uuid.uuid4())
+    user_created = None
+
+    # 1. Try DB insertion if database is online
+    if db is not None:
+        try:
+            result = await db.execute(
+                select(User).where((User.email == email_clean) | (User.employee_code == emp_code))
+            )
+            existing_user = result.scalar_one_or_none()
+            if existing_user:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Employee with this email or employee ID already exists",
+                )
+
+            db_user = User(
+                id=uuid.UUID(user_id),
+                email=email_clean,
+                hashed_password=hash_password(request.password),
+                full_name=full_name_clean,
+                role=role_clean,
+                employee_code=emp_code,
+                department=request.department or "Equities & Wealth Management",
+                designation=request.designation or "Investment Professional",
+                is_active=True,
+                is_verified=True,
+            )
+            db.add(db_user)
+            await db.flush()
+            user_created = db_user
+        except HTTPException:
+            raise
+        except Exception:
+            user_created = None
+
+    # 2. Check for duplicate in demo registry if DB was offline
+    if not user_created:
+        if email_clean in INSTITUTIONAL_DEMO_USERS or emp_code.lower() in INSTITUTIONAL_DEMO_USERS:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"User with Employee ID {emp_code} or email {email_clean} already registered",
+            )
+
+    new_demo_entry = {
+        "id": user_id,
+        "employee_code": emp_code,
+        "email": email_clean,
+        "password": request.password,
+        "full_name": full_name_clean,
+        "department": request.department or "Equities & Wealth Management",
+        "designation": request.designation or "Investment Professional",
+        "role": role_clean,
+        "is_active": True,
+    }
+    INSTITUTIONAL_DEMO_USERS[emp_code.lower()] = new_demo_entry
+    INSTITUTIONAL_DEMO_USERS[email_clean] = new_demo_entry
+
+    # Register in self_service_engine
+    self_service_engine.add_or_register_employee(
+        employee_code=emp_code,
+        full_name=full_name_clean,
+        email=email_clean,
+        role=role_clean,
+        department=request.department or "Equities & Wealth Management",
+        designation=request.designation or "Investment Professional",
     )
-    db.add(user)
-    await db.flush()
 
-    # Create tokens
-    token_data = {"sub": str(user.id), "role": user.role}
+    # Generate JWT Tokens
+    token_data = {"sub": user_id, "role": role_clean, "emp_code": emp_code}
     access_token = create_access_token(token_data)
     refresh_token = create_refresh_token(token_data)
+
+    # Set secure session cookie
+    response.set_cookie(
+        key="dsp_access_token",
+        value=access_token,
+        httponly=True,
+        samesite="lax",
+        secure=False,
+        max_age=settings.jwt_access_token_expire_minutes * 60,
+        path="/",
+    )
 
     return APIResponse(
         success=True,
         data={
             "user": {
-                "id": str(user.id),
-                "email": user.email,
-                "full_name": user.full_name,
-                "role": user.role,
+                "id": user_id,
+                "employee_code": emp_code,
+                "email": email_clean,
+                "full_name": full_name_clean,
+                "role": role_clean,
+                "department": request.department or "Equities & Wealth Management",
+                "designation": request.designation or "Investment Professional",
             },
             "tokens": {
                 "access_token": access_token,
@@ -82,11 +175,13 @@ async def register(request: RegisterRequest, db: AsyncSession = Depends(get_db))
                 "token_type": "bearer",
                 "expires_in": settings.jwt_access_token_expire_minutes * 60,
             },
+            "access_token": access_token,
+            "refresh_token": refresh_token,
         },
         metadata=ResponseMetadata(
             timestamp=datetime.now(timezone.utc),
-            source="auth",
-            data_status="N/A",
+            source="auth_registration",
+            data_status="USER_CREATED",
             is_demo=settings.is_demo,
         ),
     )

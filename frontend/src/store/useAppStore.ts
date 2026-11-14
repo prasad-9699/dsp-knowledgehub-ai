@@ -29,6 +29,15 @@ interface AuthSlice {
   sessionError: string | null;
   setSessionError: (msg: string | null) => void;
   login: (email: string, password: string) => Promise<boolean>;
+  register: (data: {
+    email: string;
+    password: string;
+    full_name: string;
+    role?: string;
+    employee_code?: string;
+    department?: string;
+    designation?: string;
+  }) => Promise<boolean>;
   logout: () => Promise<void>;
   checkAuth: () => Promise<boolean>;
 }
@@ -87,6 +96,52 @@ export const useAppStore = create<AppStore>((set) => ({
       return false;
     } catch (err: any) {
       const msg = err.response?.data?.detail || 'Invalid employee credentials or password.';
+      set({ isLoading: false, sessionError: msg });
+      return false;
+    }
+  },
+
+  register: async (data: {
+    email: string;
+    password: string;
+    full_name: string;
+    role?: string;
+    employee_code?: string;
+    department?: string;
+    designation?: string;
+  }) => {
+    try {
+      set({ isLoading: true, sessionError: null });
+      const response = await authAPI.register(data);
+      if (response.data?.success && response.data?.data) {
+        const resData = response.data.data;
+        const accessToken = resData.tokens?.access_token || resData.access_token;
+        const refreshToken = resData.tokens?.refresh_token || resData.refresh_token;
+        const user = resData.user;
+
+        if (accessToken) {
+          localStorage.setItem('dsp_access_token', accessToken);
+        }
+        if (refreshToken) {
+          localStorage.setItem('dsp_refresh_token', refreshToken);
+        }
+
+        set({
+          user,
+          isAuthenticated: true,
+          isLoading: false,
+          authChecked: true,
+          sessionError: null,
+        });
+        return true;
+      }
+      set({
+        isLoading: false,
+        sessionError: response.data?.error || 'Registration failed.',
+      });
+      return false;
+    } catch (err: any) {
+      const msg = err.response?.data?.detail || err.response?.data?.message || 'User registration failed.';
       set({ isLoading: false, sessionError: msg });
       return false;
     }

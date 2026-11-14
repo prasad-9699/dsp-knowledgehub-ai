@@ -1367,6 +1367,37 @@ class OnboardingEngine:
 
         self._add_audit("ONBOARDING_ASSIGNED", emp_code, assigned_by, {"template_id": template_id})
         self.save_data()
+
+        # Register employee in self-service & demo users so they can log in immediately
+        try:
+            from app.services.self_service_service import self_service_engine
+            self_service_engine.add_or_register_employee(
+                employee_code=emp_code,
+                full_name=full_name,
+                email=email,
+                role="EMPLOYEE",
+                department=department,
+                designation=designation,
+                manager_code=manager_code or "EMP-1004",
+                manager_name=manager_name or "Vikram Malhotra",
+            )
+            from app.api.auth import INSTITUTIONAL_DEMO_USERS
+            demo_user = {
+                "id": str(uuid.uuid4()),
+                "employee_code": emp_code,
+                "email": email.strip().lower(),
+                "password": "Password@123",
+                "full_name": full_name,
+                "department": department,
+                "designation": designation,
+                "role": "EMPLOYEE",
+                "is_active": True,
+            }
+            INSTITUTIONAL_DEMO_USERS[emp_code.lower()] = demo_user
+            INSTITUTIONAL_DEMO_USERS[email.strip().lower()] = demo_user
+        except Exception:
+            pass
+
         return instance
 
     def answer_onboarding_ai_query(self, emp_code: str, question: str) -> Dict:

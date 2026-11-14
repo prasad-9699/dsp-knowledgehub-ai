@@ -338,7 +338,28 @@ function AssignOnboardingForm({ onSuccess }: { onSuccess: () => void }) {
     setSaving(true); setMsg('');
     try {
       await onboardingAPI.hrAssignOnboarding({ ...form });
-      setMsg('✅ Onboarding plan assigned successfully!');
+
+      // Save new hire persona into localStorage so they can be logged in with 1-click on /login
+      try {
+        const stored = JSON.parse(localStorage.getItem('dsp_custom_personas') || '[]');
+        const updated = [
+          ...stored.filter((p: any) => p.code?.toLowerCase() !== form.employee_code.toLowerCase()),
+          {
+            code: form.employee_code,
+            name: form.full_name,
+            email: form.email,
+            role: 'EMPLOYEE',
+            designation: form.designation || 'New Hire',
+            department: form.department || 'Equities & Wealth Management',
+            password: 'Password@123',
+          },
+        ];
+        localStorage.setItem('dsp_custom_personas', JSON.stringify(updated));
+      } catch {
+        // ignore storage errors
+      }
+
+      setMsg(`✅ Onboarding plan assigned! New hire can log in immediately with ID "${form.employee_code}" and Password "Password@123".`);
       onSuccess();
     } catch (err: any) {
       setMsg(err?.response?.data?.detail || 'Failed to assign onboarding.');

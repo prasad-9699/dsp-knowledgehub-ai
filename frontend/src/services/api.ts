@@ -142,8 +142,25 @@ export const authAPI = {
 
   logout: () => api.post<APIResponse>('/auth/logout'),
 
-  register: (email: string, password: string, full_name: string, role: string = 'EMPLOYEE') =>
-    api.post<APIResponse>('/auth/register', { email, password, full_name, role }),
+  register: (
+    dataOrEmail: {
+      email: string;
+      password: string;
+      full_name: string;
+      role?: string;
+      employee_code?: string;
+      department?: string;
+      designation?: string;
+    } | string,
+    password?: string,
+    full_name?: string,
+    role: string = 'EMPLOYEE'
+  ) => {
+    if (typeof dataOrEmail === 'object') {
+      return api.post<APIResponse>('/auth/register', dataOrEmail);
+    }
+    return api.post<APIResponse>('/auth/register', { email: dataOrEmail, password, full_name, role });
+  },
 
   getMe: () => api.get<APIResponse>('/auth/me'),
 };

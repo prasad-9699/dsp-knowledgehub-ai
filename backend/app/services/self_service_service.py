@@ -695,6 +695,82 @@ class SelfServiceEngine:
     def list_all_demo_employees(self) -> List[Dict[str, Any]]:
         return list(self.data.get("employees", {}).values())
 
+    def add_or_register_employee(
+        self,
+        employee_code: str,
+        full_name: str,
+        email: str,
+        role: str = "EMPLOYEE",
+        department: str = "Equities & Wealth Management",
+        designation: str = "Investment Professional",
+        location: str = "Mumbai - Nariman Point (Mafatlal Centre)",
+        manager_code: str = "EMP-1004",
+        manager_name: str = "Vikram Malhotra",
+    ) -> Dict[str, Any]:
+        """Registers a new employee into the self-service engine."""
+        employees = self.data.setdefault("employees", {})
+        existing = self.get_employee_by_id(employee_code)
+        if existing:
+            return existing
+
+        initials = "".join([p[0].upper() for p in full_name.split() if p])[:2] or "EM"
+        emp_id = str(uuid.uuid4())
+        emp = {
+            "id": emp_id,
+            "employee_code": employee_code,
+            "email": email,
+            "full_name": full_name,
+            "department": department,
+            "designation": designation,
+            "role": role.upper(),
+            "location": location,
+            "manager_code": manager_code,
+            "manager_name": manager_name,
+            "avatar_initials": initials,
+            "date_of_joining": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            "is_active": True,
+            "is_demo": True,
+        }
+        employees[emp_id] = emp
+
+        # Initialize default leave balances
+        balances = self.data.setdefault("leave_balances", {})
+        if employee_code not in balances:
+            balances[employee_code] = [
+                {
+                    "category_id": "pl",
+                    "category_name": "Privilege Leave (Annual)",
+                    "code": "PL",
+                    "allocated": 24.0,
+                    "used": 0.0,
+                    "pending": 0.0,
+                    "available": 24.0,
+                    "description": "Standard annual vacation quota.",
+                },
+                {
+                    "category_id": "csl",
+                    "category_name": "Casual & Sick Leave",
+                    "code": "CSL",
+                    "allocated": 12.0,
+                    "used": 0.0,
+                    "pending": 0.0,
+                    "available": 12.0,
+                    "description": "Short-term absence and health-related leave.",
+                },
+                {
+                    "category_id": "comp_off",
+                    "category_name": "Compensatory Off",
+                    "code": "COMP_OFF",
+                    "allocated": 5.0,
+                    "used": 0.0,
+                    "pending": 0.0,
+                    "available": 5.0,
+                    "description": "Earned off-in-lieu for weekend or holiday duties.",
+                },
+            ]
+        self.save_data()
+        return emp
+
     # ─── 2. Leave Management ─────────────────────────────────────────────
 
     def get_leave_balances(self, employee_code: str) -> Dict[str, Any]:
