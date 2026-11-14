@@ -155,7 +155,8 @@ export default function Login() {
     if (success) {
       navigate(from, { replace: true });
     } else {
-      setLocalError('Authentication failed. Please verify your Employee ID or corporate email and password.');
+      const err = useAppStore.getState().sessionError;
+      setLocalError(err || 'Authentication failed. Please verify your Employee ID or corporate email and password.');
     }
   };
 
@@ -209,7 +210,8 @@ export default function Login() {
 
       navigate(from, { replace: true });
     } else {
-      setLocalError('User registration failed. Please check if this email or Employee Code is already registered.');
+      const err = useAppStore.getState().sessionError;
+      setLocalError(err || 'User registration failed. Please try again.');
     }
   };
 
