@@ -181,7 +181,7 @@ export const useAppStore = create<AppStore>((set) => ({
     const demoUser = INSTITUTIONAL_DEMO_USERS[norm] || findCustomPersona(norm);
     if (demoUser) {
       localStorage.setItem('dsp_active_demo_user', JSON.stringify(demoUser));
-      localStorage.setItem('dsp_access_token', 'demo-session-' + Date.now());
+      localStorage.setItem('dsp_access_token', 'demo-session:' + (demoUser.employee_code || 'EMP-1001') + ':' + Date.now());
       set({
         user: demoUser,
         isAuthenticated: true,
@@ -276,7 +276,7 @@ export const useAppStore = create<AppStore>((set) => ({
 
     // 2. Establish active session immediately (zero delay)
     localStorage.setItem('dsp_active_demo_user', JSON.stringify(newUser));
-    localStorage.setItem('dsp_access_token', 'demo-session-' + Date.now());
+    localStorage.setItem('dsp_access_token', 'demo-session:' + assignedCode + ':' + Date.now());
 
     set({
       user: newUser,
@@ -317,7 +317,7 @@ export const useAppStore = create<AppStore>((set) => ({
     }
 
     // If active demo session token is active
-    if (token.startsWith('demo-session-') && activeDemo) {
+    if (token.startsWith('demo-session') && activeDemo) {
       try {
         const parsed = JSON.parse(activeDemo);
         set({ user: parsed, isAuthenticated: true, authChecked: true, sessionError: null });

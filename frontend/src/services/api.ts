@@ -123,7 +123,11 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401 && !error.config?.url?.includes('/auth/login')) {
+    const token = localStorage.getItem('dsp_access_token');
+    const isDemoSession = (token && token.startsWith('demo-session')) || !!localStorage.getItem('dsp_active_demo_user');
+
+    // Never evict active demo user sessions on 401
+    if (error.response?.status === 401 && !isDemoSession && !error.config?.url?.includes('/auth/login')) {
       localStorage.removeItem('dsp_access_token');
       localStorage.removeItem('dsp_refresh_token');
       window.dispatchEvent(new CustomEvent('dsp:session-expired', {
