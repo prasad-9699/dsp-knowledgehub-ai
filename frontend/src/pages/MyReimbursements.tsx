@@ -31,6 +31,71 @@ const CATEGORY_LABELS: Record<string, string> = {
   OTHER: 'General Business Expense',
 };
 
+const ADITI_SEED_CLAIMS: ExpenseClaimItem[] = [
+  {
+    id: 'clm_001',
+    claim_number: 'CLM-2026-001',
+    employee_code: 'EMP-1001',
+    employee_name: 'Aditi Sharma',
+    category: 'MEALS',
+    category_label: 'Client Business Entertainment',
+    expense_date: '2026-10-08',
+    amount: 4850.0,
+    currency: 'INR',
+    merchant: 'Trident Hotel, Nariman Point',
+    business_purpose: 'Annual portfolio review dinner with ultra-HNI wealth client delegation.',
+    receipt_filename: 'receipt_trident_dinner_oct08.pdf',
+    receipt_url: '/api/v1/self-service/receipts/receipt_trident_dinner_oct08.pdf',
+    status: 'UNDER_REVIEW',
+    submitted_on: '2026-10-09T11:00:00Z',
+    approver_name: 'Vikram Malhotra',
+    reviewer_comments: 'Verified under DSP-FIN-001 client entertainment limits. Pending final signoff.',
+    can_cancel: true,
+  },
+  {
+    id: 'clm_002',
+    claim_number: 'CLM-2026-002',
+    employee_code: 'EMP-1001',
+    employee_name: 'Aditi Sharma',
+    category: 'CONVEYANCE',
+    category_label: 'Local Transport & Fuel',
+    expense_date: '2026-09-22',
+    amount: 850.0,
+    currency: 'INR',
+    merchant: 'Uber India Systems',
+    business_purpose: 'Travel from BKC Client Office to Mumbai Domestic Airport T1.',
+    receipt_filename: 'uber_receipt_bkc_airport.pdf',
+    receipt_url: '/api/v1/self-service/receipts/uber_receipt_bkc_airport.pdf',
+    status: 'APPROVED',
+    submitted_on: '2026-09-23T09:15:00Z',
+    approver_name: 'Vikram Malhotra',
+    reviewer_comments: 'Approved. Forwarded to Finance for Concur batch settlement.',
+    settlement_reference: 'CONCUR-SETTLE-8819',
+    can_cancel: false,
+  },
+  {
+    id: 'clm_003',
+    claim_number: 'CLM-2026-003',
+    employee_code: 'EMP-1001',
+    employee_name: 'Aditi Sharma',
+    category: 'INTERNET_MOBILE',
+    category_label: 'WFH Broadband & Mobile Bill',
+    expense_date: '2026-09-01',
+    amount: 1500.0,
+    currency: 'INR',
+    merchant: 'Airtel Broadband Solutions',
+    business_purpose: 'Monthly WFH corporate internet allowance for trading workstation connectivity.',
+    receipt_filename: 'airtel_bill_aug2026.pdf',
+    receipt_url: '/api/v1/self-service/receipts/airtel_bill_aug2026.pdf',
+    status: 'PAID',
+    submitted_on: '2026-09-02T10:00:00Z',
+    approver_name: 'Vikram Malhotra',
+    reviewer_comments: 'Settled via monthly payroll credit.',
+    settlement_reference: 'NEFT-DSP-PAY-9921',
+    can_cancel: false,
+  },
+];
+
 function computeSummary(claimsList: ExpenseClaimItem[], code: string): ExpenseSummary {
   const pending = claimsList.filter((c) =>
     ['UNDER_REVIEW', 'SUBMITTED', 'PENDING', 'INFO_REQUIRED'].includes(c.status)
@@ -95,6 +160,15 @@ export default function MyReimbursements() {
       }
     } catch {
       // ignore parsing error
+    }
+
+    if (localClaims.length === 0 && empCode === 'EMP-1001') {
+      localClaims = [...ADITI_SEED_CLAIMS];
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(localClaims));
+      } catch {
+        // ignore
+      }
     }
 
     try {

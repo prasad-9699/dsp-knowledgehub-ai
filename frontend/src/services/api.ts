@@ -8,7 +8,13 @@
 
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || '/api/v1';
+let rawBase = (import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || '/api/v1').trim();
+rawBase = rawBase.replace(/\/+$/, '');
+// If remote URL is provided without /api/v1, append /api/v1 for standard API endpoints
+if (rawBase.startsWith('http') && !rawBase.endsWith('/api/v1')) {
+  rawBase = `${rawBase}/api/v1`;
+}
+const API_BASE_URL = rawBase;
 
 // API Response wrapper type matching backend schema
 export interface APIResponse<T = any> {
@@ -580,8 +586,10 @@ export interface OnboardingStatus {
 
 export const onboardingAPI = {
   // Employee endpoints
-  getMyStatus: () =>
-    api.get<APIResponse<OnboardingStatus>>('/onboarding/status'),
+  getMyStatus: (previewCode?: string) =>
+    api.get<APIResponse<OnboardingStatus>>('/onboarding/status', {
+      params: previewCode ? { preview_emp_code: previewCode } : undefined,
+    }),
 
   getMyTasks: (stage?: string) =>
     api.get<APIResponse<{ tasks: OnboardingTask[]; summary: OnboardingTaskSummary }>>('/onboarding/tasks', {

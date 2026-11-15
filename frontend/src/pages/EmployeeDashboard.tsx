@@ -79,11 +79,11 @@ function getInitialDashboard(user: any): EmployeeDashboardData {
         employee_code: code,
         total_claims: 3,
         pending_approval_count: 1,
-        pending_approval_amount: 3200,
-        approved_count: 2,
-        approved_amount: 48500,
-        paid_count: 2,
-        paid_amount: 48500,
+        pending_approval_amount: 4850,
+        approved_count: 1,
+        approved_amount: 850,
+        paid_count: 1,
+        paid_amount: 1500,
         currency: 'INR',
       };
     }
@@ -180,9 +180,9 @@ function getInitialDashboard(user: any): EmployeeDashboardData {
           id: 'act-2',
           type: 'EXPENSE',
           title: 'Client Lunch Reimbursement',
-          subtitle: 'Equities Research Meeting • ₹3,200',
+          subtitle: 'Equities Research Meeting • ₹4,850',
           status: 'PENDING',
-          timestamp: '2026-11-08T14:15:00Z',
+          timestamp: '2026-10-09T11:00:00Z',
           link: '/reimbursements',
         },
         {

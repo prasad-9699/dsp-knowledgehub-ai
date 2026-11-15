@@ -4,6 +4,7 @@ Database configuration and session management.
 Uses SQLAlchemy async engine with PostgreSQL/TimescaleDB.
 """
 
+from typing import Optional, Tuple
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import MetaData
@@ -92,6 +93,7 @@ async def check_db_connection() -> tuple[bool, Optional[str]]:
 
 async def init_db():
     """Initialize database tables."""
+    import app.models  # noqa: F401 - ensure all models are registered on Base
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 

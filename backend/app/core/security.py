@@ -219,6 +219,35 @@ async def get_current_user(
                     is_active=True,
                     is_verified=True,
                 )
+
+        if emp_code:
+            from app.services.self_service_service import self_service_engine
+            emp_rec = self_service_engine.get_employee_by_id(emp_code)
+            if not emp_rec:
+                emp_rec = self_service_engine.add_or_register_employee(
+                    employee_code=emp_code,
+                    full_name=payload.get("name", "DSP Professional"),
+                    email=payload.get("email", f"{emp_code.lower()}@dspamc.com"),
+                    role=payload.get("role", "EMPLOYEE"),
+                )
+            import uuid
+            try:
+                u_uuid = uuid.UUID(str(user_id))
+            except Exception:
+                u_uuid = uuid.uuid5(uuid.NAMESPACE_DNS, str(emp_code))
+            return User(
+                id=u_uuid,
+                email=emp_rec.get("email", f"{emp_code.lower()}@dspamc.com"),
+                hashed_password="demo",
+                full_name=emp_rec.get("full_name", "DSP Professional"),
+                role=emp_rec.get("role", "EMPLOYEE"),
+                employee_code=emp_code,
+                department=emp_rec.get("department", "Equities & Wealth Management"),
+                designation=emp_rec.get("designation", "Investment Professional"),
+                is_active=True,
+                is_verified=True,
+            )
+
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="User not found or session expired",

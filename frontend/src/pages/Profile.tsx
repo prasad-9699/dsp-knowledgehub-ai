@@ -54,8 +54,12 @@ export default function Profile() {
   // Editable Form fields
   const [phone, setPhone] = useState('+91 98201 44512');
   const [location, setLocation] = useState('Mumbai - Nariman Point (Mafatlal Centre, 10th Floor)');
-  const [emergencyContact, setEmergencyContact] = useState('Rajesh Sharma (Spouse)');
-  const [emergencyPhone, setEmergencyPhone] = useState('+91 98200 99881');
+  const [emergencyContact, setEmergencyContact] = useState(
+    user?.employee_code === 'EMP-1001' ? 'Rajesh Sharma (Spouse)' : 'Primary Family Contact'
+  );
+  const [emergencyPhone, setEmergencyPhone] = useState(
+    user?.employee_code === 'EMP-1001' ? '+91 98200 99881' : '+91 98200 12345'
+  );
 
   useEffect(() => {
     loadProfile();

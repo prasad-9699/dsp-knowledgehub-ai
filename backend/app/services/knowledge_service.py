@@ -703,9 +703,13 @@ class KnowledgeService:
             }
 
         return {
-            "answer": "",
+            "answer": "The requested information could not be verified in the official DSPAMC policy documents and knowledge library. Please consult your reporting manager, People Operations (HR), or Legal & Compliance for guidance.",
             "citations": [],
-            "follow_up_suggestions": [],
+            "follow_up_suggestions": [
+                "Contact HR Operations via PeoplePulse",
+                "Submit an inquiry ticket on ServiceDesk",
+                "Browse the DSP Policy Library"
+            ],
             "document_found": False
         }
 

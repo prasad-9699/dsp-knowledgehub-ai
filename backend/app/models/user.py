@@ -35,14 +35,15 @@ class User(Base):
     # RBAC role
     role: Mapped[str] = mapped_column(
         Enum(
+            # Core self-service employee roles
+            "EMPLOYEE", "MANAGER", "ADMIN", "COMPLIANCE", "HR",
+            # Investment & research roles
+            "INVESTMENT_ANALYST", "ADVISOR", "RESEARCH", "RISK", "VIEWER",
             # Legacy roles (kept for backward compatibility)
             "INVESTOR", "ANALYST", "PORTFOLIO_MANAGER", "RESEARCHER",
-            # New employee roles
-            "ADMIN", "INVESTMENT_ANALYST", "ADVISOR",
-            "RESEARCH", "RISK", "COMPLIANCE", "VIEWER",
             name="user_role",
         ),
-        default="VIEWER",
+        default="EMPLOYEE",
         nullable=False,
     )
 

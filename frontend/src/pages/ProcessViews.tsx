@@ -164,7 +164,7 @@ export function PoliciesPage() {
               <button
                 className="btn btn-primary"
                 style={{ width: '100%', fontSize: '0.75rem', padding: '0.45rem', justifyContent: 'center', gap: '0.375rem' }}
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/assistant')}
               >
                 <Sparkles style={{ width: 14, height: 14 }} />
                 Ask KnowledgeHub AI about this Policy
@@ -286,7 +286,7 @@ export function LeaveProcessPage() {
           <button
             className="btn btn-primary"
             style={{ fontSize: '0.8125rem' }}
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/assistant')}
           >
             <Sparkles style={{ width: 14, height: 14 }} /> Open KnowledgeHub AI
           </button>
@@ -362,7 +362,7 @@ export function OnboardingProcessPage() {
           <li>DSPAMC Code of Ethics & Insider Trading Declaration</li>
         </ul>
         <div style={{ marginTop: '1rem' }}>
-          <button className="btn btn-primary" onClick={() => navigate('/')}>
+          <button className="btn btn-primary" onClick={() => navigate('/assistant')}>
             <Sparkles style={{ width: 14, height: 14 }} /> Ask KnowledgeHub AI about Onboarding
           </button>
         </div>

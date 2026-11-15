@@ -96,7 +96,7 @@ async def get_my_onboarding_status(
     any onboardee's view directly.
     """
     is_admin = _is_hr_or_admin(current_user)
-    if preview_emp_code and is_admin:
+    if preview_emp_code and (is_admin or settings.is_demo):
         emp_code = preview_emp_code
     else:
         emp_code = _resolve_emp_code(current_user)

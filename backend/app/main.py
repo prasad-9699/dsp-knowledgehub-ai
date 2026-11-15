@@ -230,10 +230,16 @@ async def health_check():
 
 
 # ─── API Routes ──────────────────────────────────────────────────────
+# Mounted both with /api/v1 (standard REST) and root (direct deployment compatibility)
 app.include_router(auth.router, prefix="/api/v1")
 app.include_router(self_service.router, prefix="/api/v1")
 app.include_router(onboarding.router, prefix="/api/v1")
 app.include_router(research.router, prefix="/api/v1")
+
+app.include_router(auth.router)
+app.include_router(self_service.router)
+app.include_router(onboarding.router)
+app.include_router(research.router)
 
 
 # ─── Root ────────────────────────────────────────────────────────────

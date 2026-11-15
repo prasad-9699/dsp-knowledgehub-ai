@@ -237,11 +237,11 @@ export default function OnboardingPage() {
   const [aiAnswer, setAiAnswer] = useState<any>(null);
   const [aiLoading, setAiLoading] = useState(false);
 
-  const load = useCallback(async () => {
+  const load = useCallback(async (previewCode?: string) => {
     try {
       setLoading(true);
       const [statusRes, notifsRes] = await Promise.all([
-        onboardingAPI.getMyStatus(),
+        onboardingAPI.getMyStatus(previewCode),
         onboardingAPI.getNotifications(),
       ]);
       if (statusRes.data?.success) setStatus(statusRes.data.data);
@@ -335,9 +335,44 @@ export default function OnboardingPage() {
           <div className="ob-no-onboarding-hint">
             <Info size={14} /> Existing employees continue to use the regular employee self-service portal.
           </div>
-          <button className="ob-btn-primary" onClick={() => navigate('/')}>
-            Go to Dashboard
-          </button>
+
+          <div style={{ marginTop: '1.25rem', width: '100%', textAlign: 'left', borderTop: '1px solid #e2e8f0', paddingTop: '1rem' }}>
+            <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#475569', marginBottom: '0.5rem' }}>
+              Preview Interactive Candidate Onboarding Flows (Demo Mode):
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              {[
+                { code: 'EMP-2001', name: 'Kavya Reddy', stage: 'Preboarding' },
+                { code: 'EMP-2002', name: 'Arjun Pillai', stage: 'Day 1' },
+                { code: 'EMP-2003', name: 'Meera Kapoor', stage: 'First Week' },
+                { code: 'EMP-2004', name: 'Rahul Singh', stage: 'First 30 Days' },
+                { code: 'EMP-2005', name: 'Sneha Joshi', stage: 'Completed' },
+              ].map((p) => (
+                <button
+                  key={p.code}
+                  type="button"
+                  style={{
+                    fontSize: '0.75rem',
+                    padding: '0.4rem 0.75rem',
+                    border: '1px solid #cbd5e1',
+                    borderRadius: '6px',
+                    backgroundColor: '#f8fafc',
+                    cursor: 'pointer',
+                    color: '#1e293b',
+                  }}
+                  onClick={() => load(p.code)}
+                >
+                  <strong>{p.name}</strong> ({p.code}) — {p.stage}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ marginTop: '1.25rem' }}>
+            <button className="ob-btn-primary" onClick={() => navigate('/')}>
+              Go to Dashboard
+            </button>
+          </div>
         </div>
       </div>
     );

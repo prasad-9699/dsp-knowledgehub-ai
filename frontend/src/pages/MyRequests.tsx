@@ -21,9 +21,64 @@ const CATEGORY_NAMES: Record<string, string> = {
   IT_ACCESS: 'IT Access & Accounts',
   HARDWARE: 'Hardware & Devices',
   HR_BENEFITS: 'HR Benefits & Leaves',
+  HR_LETTERS: 'Bonafide & Employment Letters',
   FACILITIES: 'Facilities & Workplace',
   FINANCE_EXPENSE: 'Finance & Expense Inquiry',
+  GENERAL: 'General Employee Assistance',
 };
+
+const ADITI_SEED_REQUESTS: ServiceRequestItem[] = [
+  {
+    id: 'req_001',
+    request_number: 'REQ-2026-001',
+    employee_code: 'EMP-1001',
+    employee_name: 'Aditi Sharma',
+    category: 'IT_ACCESS',
+    category_label: 'Application & Terminal Access',
+    subject: 'Bloomberg Terminal B-PIPE Data Feed License Add-on',
+    description: 'Need access to institutional equities fixed-income spread analytics module on Bloomberg terminal #BOM-BBG-12.',
+    priority: 'HIGH',
+    status: 'IN_PROGRESS',
+    assigned_team: 'IT Market Data Services',
+    assignee_name: 'Santosh Kadam (IT Support)',
+    created_at: '2026-10-07T11:30:00Z',
+    updated_at: '2026-10-08T14:15:00Z',
+    comments: [
+      {
+        id: 'c1',
+        author_name: 'Santosh Kadam (IT Support)',
+        author_role: 'SUPPORT',
+        timestamp: '2026-10-08T14:15:00Z',
+        message: 'Order placed with Bloomberg account manager. Expected entitlement provision within 24 hours.',
+      },
+    ],
+  },
+  {
+    id: 'req_002',
+    request_number: 'REQ-2026-002',
+    employee_code: 'EMP-1001',
+    employee_name: 'Aditi Sharma',
+    category: 'HR_LETTERS',
+    category_label: 'Bonafide & Employment Letters',
+    subject: 'Bonafide Employment & Salary Certificate for Schengen Visa',
+    description: 'Require official signed DSPAMC letterhead bonafide certificate for consulate appointment on Oct 25.',
+    priority: 'MEDIUM',
+    status: 'RESOLVED',
+    assigned_team: 'People Operations / HR Services',
+    assignee_name: 'Ananya Desai (HR Operations)',
+    created_at: '2026-10-02T09:00:00Z',
+    updated_at: '2026-10-03T16:00:00Z',
+    comments: [
+      {
+        id: 'c2',
+        author_name: 'Ananya Desai (HR Operations)',
+        author_role: 'SUPPORT',
+        timestamp: '2026-10-03T16:00:00Z',
+        message: 'Digitally signed bonafide letter generated and dispatched to your corporate email. Ticket resolved.',
+      },
+    ],
+  },
+];
 
 export default function MyRequests() {
   const { user } = useAppStore();
@@ -55,6 +110,15 @@ export default function MyRequests() {
       if (stored) localReqs = JSON.parse(stored);
     } catch {
       // ignore
+    }
+
+    if (localReqs.length === 0 && empCode === 'EMP-1001') {
+      localReqs = [...ADITI_SEED_REQUESTS];
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(localReqs));
+      } catch {
+        // ignore
+      }
     }
 
     try {
